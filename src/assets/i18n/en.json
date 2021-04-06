@@ -1,0 +1,28 @@
+{
+  "info": {
+    "about": "Multilanguage application"
+  },
+  "languages": {
+    "english": "English",
+    "russian": "Russian"
+  },
+  "shorts": {
+    "and": "and"
+  },
+  "login": {
+    "signIn": "Log in to your account",
+    "login": "Login (email)",
+    "loginEmpty": "email cannot be empty",
+    "loginError": "email does not match the format",
+    "password": "password",
+    "passwordEmpty": "password cannot be empty",
+    "passwordError": "must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters",
+    "passwordForget": "Forgot your password?",
+    "enter": "Log In",
+    "doctor": "Are you a doctor?",
+    "createAccount": "Create an account",
+    "license": "By clicking on the \"Log in\" button, you agree to",
+    "termsOfUse": "Terms of Use",
+    "personalPolicy": "Personal Data Processing Policy"
+  }
+}

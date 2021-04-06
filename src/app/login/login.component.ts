@@ -3,6 +3,9 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserService} from './services/user.service';
 import {Router} from '@angular/router';
 import {environment} from '../../environments/environment';
+import {TranslateService} from '@ngx-translate/core';
+// @ts-ignore
+import Data from './../../assets/i18n/en.json';
 
 @Component({
   selector: 'app-login',
@@ -13,8 +16,13 @@ import {environment} from '../../environments/environment';
 export class LoginComponent implements OnInit {
 
   formSignIn: FormGroup;
+  login = Data.login;
+  shorts = Data.shorts;
 
-  constructor(private userService: UserService, private route: Router) {
+  constructor(
+    private userService: UserService,
+    private route: Router
+  ) {
   }
 
   ngOnInit(): void {
@@ -40,5 +48,5 @@ export class LoginComponent implements OnInit {
           }
         }
       );
-   }
+  }
 }
