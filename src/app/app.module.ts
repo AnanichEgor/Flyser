@@ -10,6 +10,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {RegisterComponent} from './register/register.component';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {MissingTranslationHandler, MissingTranslationHandlerParams, TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -26,7 +27,8 @@ export class MissingTranslationService implements MissingTranslationHandler {
     AppComponent,
     LoginComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

@@ -1,17 +1,23 @@
 <div>
   <div>{{  'login.signIn' | translate }}</div>
   <form [formGroup]="formSignIn" (ngSubmit)="onSubmit()">
+
     <input type="email" placeholder="{{'login.login' | translate}}" required="" autofocus="" formControlName="login">
-    <div class="validator"><small>
-      {{'login.loginEmpty' | translate}}
-    </small></div>
+    <div *ngIf="formSignIn.get('login').invalid && formSignIn.get('login').touched" class="validator">
+      <small *ngIf="formSignIn.get('login').errors.required">{{'login.loginEmpty' | translate}}</small>
+      <small *ngIf="formSignIn.get('login').errors.email">{{'login.loginError' | translate}}</small>
+    </div>
+
     <input type="password" placeholder="{{'login.password' | translate}}" required="" formControlName="password">
-    <div class="validator"><small>
-    </small></div>
+    <div *ngIf="formSignIn.get('password').invalid && formSignIn.get('password').touched" class="validator">
+      <small *ngIf="formSignIn.get('password').errors.required">{{'login.passwordEmpty' | translate}}</small>
+      <small *ngIf="formSignIn.get('password').errors.minlength">{{'login.passwordError' | translate}}</small>
+    </div>
+
     <h5 class="center">{{'login.passwordForget' | translate}}</h5>
     <button type="submit" [disabled]="formSignIn.invalid">{{'login.enter' | translate}}</button>
   </form>
-  <h5>{{ 'login.doctor' | translate }}<a [routerLink]="['/register']">{{'login.createAccount' | translate}}</a></h5>
-  <h6>{{'login.license' | translate }}<a> {{'login.termsOfUse' | translate}}</a> {{'shorts.and' | translate}}
-    <a>{{'login.personalPolicy' | translate}}</a></h6>
+  <h5>{{ 'login.doctor' | translate }}<a [routerLink]="['/register']"> {{'login.createAccount' | translate}}</a></h5>
+  <h6>{{'login.license' | translate }}<a [routerLink]="['/terms']"> {{'login.termsOfUse' | translate}}</a> {{'shorts.and' | translate}}
+    <a [routerLink]="['/policy']">{{'login.personalPolicy' | translate}}</a></h6>
 </div>

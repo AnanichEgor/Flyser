@@ -3,7 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserService} from './services/user.service';
 import {Router} from '@angular/router';
 import {environment} from '../../environments/environment';
-import {TranslateService} from '@ngx-translate/core';
+
 // @ts-ignore
 import Data from './../../assets/i18n/en.json';
 
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.formSignIn = new FormGroup({
       login: new FormControl('', [Validators.email, Validators.required]),
-      password: new FormControl('', [Validators.minLength(6), Validators.required])
+      password: new FormControl('', [Validators.minLength(8), Validators.required])
     });
   }
 
