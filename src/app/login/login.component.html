@@ -1,0 +1,15 @@
+<div>
+  <div>Войти в аккаунт</div>
+  <form [formGroup]="formSignIn" (ngSubmit)="onSubmit()">
+    <input type="email" placeholder="Логин(email)" required="" autofocus="" formControlName="login">
+    <div class="validator"><small>
+      Поле email не может быть пустым
+    </small></div>
+    <input type="password" placeholder="Пароль" required="" formControlName="password">
+    <div class="validator"><small></small></div>
+    <h5 class="center">Забыли пароль?</h5>
+    <button type="submit" [disabled]="formSignIn.invalid">Войти</button>
+  </form>
+  <h5>Вы врач? <a [routerLink]="['/register']">Создайте аккаунт</a></h5>
+  <h6>Нажимая на кнопку "Войти" вы соглашаетесь с <a>Правилами пользования</a> и <a>Политикой обработки персональных данных</a></h6>
+</div>
