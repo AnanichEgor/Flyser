@@ -7,7 +7,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {LoginModule} from './login/login.module';
 import {AppTranslateModule} from './shared/app-translate.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,7 +21,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LoginModule,
     AppTranslateModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
