@@ -6,6 +6,12 @@
     "english": "English",
     "russian": "Russian"
   },
+  "errors": {
+    "unauthorized": "Username and password are not registered",
+    "forbidden": "access denied",
+    "notFound": "Not found",
+    "internalServerError": "internal server error"
+  },
   "shorts": {
     "and": "and"
   },

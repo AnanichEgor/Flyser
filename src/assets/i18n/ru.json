@@ -9,6 +9,12 @@
   "shorts": {
     "and": "и"
   },
+  "errors": {
+    "unauthorized": "Логин и пароль не зарегистрированы",
+    "forbidden": "доступ запрещен",
+    "notFound": "Не найдено",
+    "internalServerError": "внутреняя ошибка сервера"
+  },
   "login": {
     "signIn": "Войти в аккаунт",
     "login": "Логин (email)",

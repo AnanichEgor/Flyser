@@ -3,9 +3,12 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserService} from './services/user.service';
 import {Router} from '@angular/router';
 import {environment} from '../../environments/environment';
+import {PolicyComponent} from './policy/policy.component';
 
 // @ts-ignore
 import Data from './../../assets/i18n/en.json';
+import {MatDialog} from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-login',
@@ -14,15 +17,13 @@ import Data from './../../assets/i18n/en.json';
   encapsulation: ViewEncapsulation.Emulated
 })
 export class LoginComponent implements OnInit {
-  showPolicy = false;
-
   formSignIn: FormGroup;
-  login = Data.login;
-  shorts = Data.shorts;
+  serverError = '';
 
   constructor(
     private userService: UserService,
-    private route: Router
+    private route: Router,
+    public dialog: MatDialog
   ) {
   }
 
@@ -33,8 +34,31 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  onSubmit(): void {
+  setServerMessage(str: string): void {
+    this.serverError = str;
+    setTimeout(() => {
+      this.serverError = '';
+    }, 5000);
+  }
 
+  readStatus(status): string {
+    switch (status) {
+      case 200:
+        return;
+      case 401:
+        this.setServerMessage('errors.unauthorized');
+        break;
+      case 403:
+        this.setServerMessage('errors.forbidden');
+        break;
+      case 500:
+        this.setServerMessage('errors.internalServerError');
+        break;
+    }
+  }
+
+
+  onSubmit(): void {
     console.log(this.formSignIn.value);
     this.userService.logIn(this.formSignIn.value)
       .subscribe(
@@ -45,13 +69,26 @@ export class LoginComponent implements OnInit {
         err => {
           this.userService.setAuthorized(null);
           if (!environment.production) {
-            console.error(err);
+            this.readStatus(err.status);
           }
         }
       );
   }
 
-  closeModal() {
-    this.showPolicy = false;
+  openDialog(component): void {
+    const dialogRef = this.dialog.open(component);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  onClickDoctor($event): void {
+    $event.preventDefault();
+  }
+
+  onClickPolicy($event): void {
+    this.openDialog(PolicyComponent);
+    $event.preventDefault();
   }
 }

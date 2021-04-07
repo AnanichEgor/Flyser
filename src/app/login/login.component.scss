@@ -1,14 +1,16 @@
-input {
-  &.ng-invalid.ng-touched {
-    border: 1px solid red;
-  }
-
-  &.ng-valid {
-    border: 1px solid #ccc;
-  }
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
 }
 
-.validator {
+.mat-card{
+  width: 20rem;
+  margin: auto;
+  top: 20%;
+}
+
+.error{
   color: red;
 }
-
