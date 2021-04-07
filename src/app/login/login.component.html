@@ -2,7 +2,7 @@
   <div>{{  'login.signIn' | translate }}</div>
   <form [formGroup]="formSignIn" (ngSubmit)="onSubmit()">
 
-    <input type="email" placeholder="{{'login.login' | translate}}" required="" autofocus="" formControlName="login">
+    <input type="email" placeholder="{{'login.login' | translate}}" required="" formControlName="login">
     <div *ngIf="formSignIn.get('login').invalid && formSignIn.get('login').touched" class="validator">
       <small *ngIf="formSignIn.get('login').errors.required">{{'login.loginEmpty' | translate}}</small>
       <small *ngIf="formSignIn.get('login').errors.email">{{'login.loginError' | translate}}</small>
@@ -19,5 +19,9 @@
   </form>
   <h5>{{ 'login.doctor' | translate }}<a [routerLink]="['/register']"> {{'login.createAccount' | translate}}</a></h5>
   <h6>{{'login.license' | translate }}<a [routerLink]="['/terms']"> {{'login.termsOfUse' | translate}}</a> {{'shorts.and' | translate}}
-    <a [routerLink]="['/policy']">{{'login.personalPolicy' | translate}}</a></h6>
+    <a [routerLink]="['policy']">{{'login.personalPolicy' | translate}}</a></h6>
 </div>
+
+<router-outlet></router-outlet>
+
+<!--<app-policy *ngIf="showPolicy" (onClose)="closeModal()"></app-policy>-->

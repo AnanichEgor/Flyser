@@ -14,6 +14,7 @@ import Data from './../../assets/i18n/en.json';
   encapsulation: ViewEncapsulation.Emulated
 })
 export class LoginComponent implements OnInit {
+  showPolicy = false;
 
   formSignIn: FormGroup;
   login = Data.login;
@@ -48,5 +49,9 @@ export class LoginComponent implements OnInit {
           }
         }
       );
+  }
+
+  closeModal() {
+    this.showPolicy = false;
   }
 }
