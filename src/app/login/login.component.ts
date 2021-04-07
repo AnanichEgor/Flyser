@@ -7,7 +7,7 @@ import {PolicyComponent} from './policy/policy.component';
 
 // @ts-ignore
 import Data from './../../assets/i18n/en.json';
-import {MatDialog} from '@angular/material/dialog';
+// import {MatDialog} from '@angular/material/dialog';
 
 
 @Component({
@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private userService: UserService,
     private route: Router,
-    public dialog: MatDialog
+    // public dialog: MatDialog
   ) {
   }
 
@@ -76,11 +76,11 @@ export class LoginComponent implements OnInit {
   }
 
   openDialog(component): void {
-    const dialogRef = this.dialog.open(component);
+    // const dialogRef = this.dialog.open(component);
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log(`Dialog result: ${result}`);
+    // });
   }
 
   onClickDoctor($event): void {

@@ -7,8 +7,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AppTranslateModule} from '../shared/app-translate.module';
 import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
-import {MaterialModule} from '../shared/material.module';
-import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   imports: [
@@ -17,9 +15,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     FormsModule,
     ReactiveFormsModule,
     AppTranslateModule,
-    MaterialModule,
     LoginRoutingModule,
-    MatDialogModule
   ],
   declarations: [
     LoginComponent,
