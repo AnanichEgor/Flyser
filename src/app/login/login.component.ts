@@ -4,9 +4,11 @@ import {UserService} from './services/user.service';
 import {Router} from '@angular/router';
 import {environment} from '../../environments/environment';
 import {PolicyComponent} from './policy/policy.component';
+import bootstrap from 'node_modules/bootstrap/js/dist/modal.js';
 
 // @ts-ignore
 import Data from './../../assets/i18n/en.json';
+
 // import {MatDialog} from '@angular/material/dialog';
 
 
@@ -75,12 +77,11 @@ export class LoginComponent implements OnInit {
       );
   }
 
-  openDialog(component): void {
-    // const dialogRef = this.dialog.open(component);
-
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log(`Dialog result: ${result}`);
-    // });
+  openDialog(selectorID: string): void {
+    const myModal = new bootstrap(document.getElementById(selectorID), {
+      keyboard: false
+    });
+    myModal?.show();
   }
 
   onClickDoctor($event): void {
@@ -88,7 +89,12 @@ export class LoginComponent implements OnInit {
   }
 
   onClickPolicy($event): void {
-    this.openDialog(PolicyComponent);
+    this.openDialog('policyModal');
+    $event.preventDefault();
+  }
+
+  onClickTerms($event): void {
+    this.openDialog('termsModal');
     $event.preventDefault();
   }
 }

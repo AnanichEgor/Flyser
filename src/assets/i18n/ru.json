@@ -15,6 +15,9 @@
     "notFound": "Не найдено",
     "internalServerError": "внутреняя ошибка сервера"
   },
+  "buttonLabels": {
+    "close": "Закрыть"
+  },
   "login": {
     "signIn": "Войти в аккаунт",
     "login": "Логин (email)",

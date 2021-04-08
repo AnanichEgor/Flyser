@@ -15,6 +15,9 @@
   "shorts": {
     "and": "and"
   },
+  "buttonLabels": {
+    "close": "Close"
+  },
   "login": {
     "signIn": "Log in to your account",
     "login": "Login (email)",

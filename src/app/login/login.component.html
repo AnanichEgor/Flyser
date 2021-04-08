@@ -34,49 +34,12 @@
     </h5>
     <p></p>
     <h6 class="fs-7 fw-normal text-center">{{'login.license' | translate }}
-      <a [routerLink]="['/terms']"> {{'login.termsOfUse' | translate}}</a>
+      <a href (click)="onClickTerms($event)"> {{'login.termsOfUse' | translate}}</a>
       {{'shorts.and' | translate}}
       <a href (click)="onClickPolicy($event)">{{'login.personalPolicy' | translate}}</a>
     </h6>
   </div>
 </div>
 
-<!--<mat-card class="cald">-->
-<!--  <form [formGroup]="formSignIn" (ngSubmit)="onSubmit()">-->
-<!--    <mat-form-field>-->
-<!--      <mat-label>{{'login.login' | translate}}</mat-label>-->
-<!--      <input matInput type="email" placeholder="{{'login.login' | translate}}" required="" formControlName="login">-->
-<!--      <mat-error *ngIf="formSignIn.get('login').invalid && formSignIn.get('login').touched" class="validator">-->
-<!--        <mat-error *ngIf="formSignIn.get('login').errors.required">{{'login.loginEmpty' | translate}}</mat-error>-->
-<!--        <mat-error *ngIf="formSignIn.get('login').errors.email">{{'login.loginError' | translate}}</mat-error>-->
-<!--      </mat-error>-->
-<!--    </mat-form-field>-->
-
-<!--    <mat-form-field>-->
-<!--      <mat-label>{{'login.password' | translate}}</mat-label>-->
-<!--      <input matInput type="password" placeholder="{{'login.password' | translate}}" required=""-->
-<!--             formControlName="password">-->
-<!--      <mat-error *ngIf="formSignIn.get('password').invalid && formSignIn.get('password').touched" class="validator">-->
-<!--        <mat-error *ngIf="formSignIn.get('password').errors.required">{{'login.passwordEmpty' | translate}}</mat-error>-->
-<!--        <mat-error *ngIf="formSignIn.get('password').errors.minlength">{{'login.passwordError' | translate}}</mat-error>-->
-<!--      </mat-error>-->
-<!--    </mat-form-field>-->
-<!--    <br>-->
-<!--    <h5 class="center">{{'login.passwordForget' | translate}}</h5>-->
-<!--    <h5 class="error" *ngIf="serverError">{{serverError | translate}}</h5>-->
-
-<!--    <button type="submit" mat-raised-button color="primary"-->
-<!--            [disabled]="formSignIn.invalid">{{'login.enter' | translate}}</button>-->
-<!--  </form>-->
-<!--  <br>-->
-<!--  <h5>{{ 'login.doctor' | translate }}-->
-<!--    <a href (click)="onClickDoctor($event)"> {{'login.createAccount' | translate}}</a>-->
-<!--  </h5>-->
-<!--  <h6>{{'login.license' | translate }}-->
-<!--    <a [routerLink]="['/terms']"> {{'login.termsOfUse' | translate}}</a>-->
-<!--    {{'shorts.and' | translate}}-->
-<!--    <a href (click)="onClickPolicy($event)">{{'login.personalPolicy' | translate}}</a>-->
-<!--  </h6>-->
-<!--</mat-card>-->
-
-<!--<router-outlet></router-outlet>-->
+<app-policy></app-policy>
+<app-terms></app-terms>
