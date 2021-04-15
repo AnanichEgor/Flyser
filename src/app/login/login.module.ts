@@ -24,7 +24,7 @@ import {TermsComponent} from './terms/terms.component';
     PolicyComponent,
     TermsComponent
   ],
-  exports: []
+  exports: [LoginComponent]
 })
 export class LoginModule {
 }

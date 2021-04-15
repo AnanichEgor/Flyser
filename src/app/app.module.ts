@@ -11,13 +11,13 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ToastNotificationsModule} from 'ngx-toast-notifications';
 import {AuthInterceptor} from './auth.interceptor';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {DoctorModule} from './doctor/doctor.module';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
   useClass: AuthInterceptor,
   multi: true,
 };
-
 
 @NgModule({
   declarations: [
@@ -30,6 +30,7 @@ const INTERCEPTOR_PROVIDER: Provider = {
     FormsModule,
     ReactiveFormsModule,
     LoginModule,
+    DoctorModule,
     BrowserAnimationsModule, // required
     ToastNotificationsModule,
     AppTranslateModule,

@@ -15,12 +15,12 @@ export class AppComponent {
     this.translateService.setDefaultLang(environment.defaultLocale);
   }
 
-  setLanguage(languageCode: string): void {
-    // устанавливаем выбранный язык
-    this.translateService.use(languageCode);
-    // для примера переводим строку вне шаблона, используя
-    // для этого TranslateService
-    this.translateService.get('info.about').pipe(first()).subscribe((value) => console.log(value));
-  }
+  // setLanguage(languageCode: string): void {
+  //   // устанавливаем выбранный язык
+  //   this.translateService.use(languageCode);
+  //   // для примера переводим строку вне шаблона, используя
+  //   // для этого TranslateService
+  //   this.translateService.get('info.about').pipe(first()).subscribe((value) => console.log(value));
+  // }
 
 }

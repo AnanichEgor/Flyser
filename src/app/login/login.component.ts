@@ -61,15 +61,19 @@ export class LoginComponent implements OnInit {
       .subscribe(
         user => {
           this.userService.setAuthorized(user);
-          return this.route.navigate(['/']);
+          switch (user.role) {
+            case 'ROLE_DOCTOR': {
+              this.route.navigate(['/doctor']);
+              break;
+            }
+          }
         },
         err => {
           this.userService.setAuthorized(null);
           if (!environment.production) {
             this.readStatus(err.status);
           }
-        }
-      );
+        });
   }
 
   /**
@@ -112,6 +116,5 @@ export class LoginComponent implements OnInit {
           this.utils.translateNotification('registration.processError', TypeNotification.danger);
         }
       );
-
   }
 }
