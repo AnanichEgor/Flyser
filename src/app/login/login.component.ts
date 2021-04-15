@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
     this.userService.logIn(this.formSignIn.value)
       .subscribe(
         user => {
-          this.userService.setAuthorized(user);
+          this.userService.setAuthorized(user, true);
           switch (user.role) {
             case 'ROLE_DOCTOR': {
               this.route.navigate(['/doctor']);

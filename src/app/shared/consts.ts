@@ -4,3 +4,5 @@ export const urls = {
   login: `${server}api/v1/login`,
   registration: `${server}api/v1/doctors/registration`,
 };
+
+export const cookieName = 'flyser-cookie';

@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {urls} from '../../shared/consts';
+import {cookieName, urls} from '../../shared/consts';
 import {Observable} from 'rxjs';
 import {Registration} from '../register/register.component';
-
+import {CookieService} from 'ngx-cookie-service';
 
 export interface User {
   login: string;
@@ -35,12 +35,16 @@ interface RegRequest {
 @Injectable({
   providedIn: 'root'
 })
-
 export class UserService {
   private authorize = false;
   private user: User = null;
 
-  constructor(private http: HttpClient) {
+
+  constructor(private http: HttpClient, private cookieService: CookieService) {
+    const cookie = this.cookieService.get(cookieName);
+    if (cookie) {
+      this.setAuthorized(JSON.parse(cookie));
+    }
   }
 
   private regMapper(obj: Registration): RegRequest {
@@ -62,9 +66,12 @@ export class UserService {
     };
   }
 
-  setAuthorized(user: User): void {
+  setAuthorized(user: User, cookie?: boolean): void {
     user ? this.user = user : this.user = null;
     this.authorize = !!user;
+    if (cookie) {
+      this.cookieService.set(cookieName, JSON.stringify(this.user), {expires: 7, sameSite: 'Lax'});
+    }
   }
 
   get isAuthorized(): boolean {
