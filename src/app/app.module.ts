@@ -1,4 +1,4 @@
-import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule, Provider} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
@@ -9,6 +9,15 @@ import {LoginModule} from './login/login.module';
 import {AppTranslateModule} from './shared/app-translate.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ToastNotificationsModule} from 'ngx-toast-notifications';
+import {AuthInterceptor} from './auth.interceptor';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+
+const INTERCEPTOR_PROVIDER: Provider = {
+  provide: HTTP_INTERCEPTORS,
+  useClass: AuthInterceptor,
+  multi: true,
+};
+
 
 @NgModule({
   declarations: [
@@ -26,7 +35,7 @@ import {ToastNotificationsModule} from 'ngx-toast-notifications';
     AppTranslateModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [INTERCEPTOR_PROVIDER],
   bootstrap: [AppComponent]
 })
 export class AppModule {

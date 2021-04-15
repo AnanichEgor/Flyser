@@ -5,8 +5,6 @@ import {Router} from '@angular/router';
 import {environment} from '../../environments/environment';
 import Modal from 'node_modules/bootstrap/js/dist/modal.js';
 import {Registration} from './register/register.component';
-import {TranslateService} from '@ngx-translate/core';
-import {first} from 'rxjs/operators';
 import {TypeNotification, UtilsService} from '../shared/services/utils.service';
 
 @Component({
@@ -31,7 +29,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.formSignIn = new FormGroup({
       login: new FormControl('', [Validators.email, Validators.required]),
-      password: new FormControl('', [Validators.required, Validators.minLength(8), Validators.pattern('^.*(?=.{3,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[\\d\\x]).*$')])
+      password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.pattern('^.*(?=.{3,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[\\d\\x]).*$')])
     });
   }
 

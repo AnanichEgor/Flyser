@@ -71,6 +71,10 @@ export class UserService {
     return this.authorize;
   }
 
+  getToken(): string {
+    return this.user.token;
+  }
+
   logIn({login, password}): Observable<User> {
     return this.http.post<User>(urls.login, {login, password});
   }
