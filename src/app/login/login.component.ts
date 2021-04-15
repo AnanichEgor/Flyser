@@ -3,14 +3,11 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserService} from './services/user.service';
 import {Router} from '@angular/router';
 import {environment} from '../../environments/environment';
-import {PolicyComponent} from './policy/policy.component';
-import bootstrap from 'node_modules/bootstrap/js/dist/modal.js';
-
-// @ts-ignore
-import Data from './../../assets/i18n/en.json';
-
-// import {MatDialog} from '@angular/material/dialog';
-
+import Modal from 'node_modules/bootstrap/js/dist/modal.js';
+import {Registration} from './register/register.component';
+import {TranslateService} from '@ngx-translate/core';
+import {first} from 'rxjs/operators';
+import {TypeNotification, UtilsService} from '../shared/services/utils.service';
 
 @Component({
   selector: 'app-login',
@@ -21,18 +18,20 @@ import Data from './../../assets/i18n/en.json';
 export class LoginComponent implements OnInit {
   formSignIn: FormGroup;
   serverError = '';
+  modalRegister = false;
+  currentModal = null;
 
   constructor(
     private userService: UserService,
     private route: Router,
-    // public dialog: MatDialog
+    private utils: UtilsService
   ) {
   }
 
   ngOnInit(): void {
     this.formSignIn = new FormGroup({
       login: new FormControl('', [Validators.email, Validators.required]),
-      password: new FormControl('', [Validators.minLength(8), Validators.required])
+      password: new FormControl('', [Validators.required, Validators.minLength(8), Validators.pattern('^.*(?=.{3,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[\\d\\x]).*$')])
     });
   }
 
@@ -59,9 +58,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
-
   onSubmit(): void {
-    console.log(this.formSignIn.value);
     this.userService.logIn(this.formSignIn.value)
       .subscribe(
         user => {
@@ -77,14 +74,21 @@ export class LoginComponent implements OnInit {
       );
   }
 
-  openDialog(selectorID: string): void {
-    const myModal = new bootstrap(document.getElementById(selectorID), {
-      keyboard: false
+  /**
+   * @backdrop {boolean} is false - which doesn't close the modal on click.
+   */
+  openDialog(selectorID: string, backdrop: boolean = true): object {
+    const modal = new Modal(document.getElementById(selectorID), {
+      keyboard: true,
+      backdrop
     });
-    myModal?.show();
+    modal?.show();
+    return modal;
   }
 
   onClickDoctor($event): void {
+    this.modalRegister = true;
+    this.currentModal = this.openDialog('register', false);
     $event.preventDefault();
   }
 
@@ -96,5 +100,20 @@ export class LoginComponent implements OnInit {
   onClickTerms($event): void {
     this.openDialog('termsModal');
     $event.preventDefault();
+  }
+
+  Register(obj: Registration): void {
+    this.userService.registration(obj)
+      .subscribe(
+        registration => {
+          this.currentModal?.hide();
+          this.utils.translateNotification('registration.successCreate');
+        },
+        err => {
+          this.userService.setAuthorized(null);
+          this.utils.translateNotification('registration.processError', TypeNotification.danger);
+        }
+      );
+
   }
 }

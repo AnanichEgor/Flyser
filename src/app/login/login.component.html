@@ -1,45 +1,62 @@
 <div class="wrapper">
   <div class="form-signin">
-    <form [formGroup]="formSignIn" (ngSubmit)="onSubmit()">
+    <form [formGroup]="formSignIn"
+          (ngSubmit)="onSubmit()">
       <h1 class="h3 mb-3 fw-normal text-center">{{'login.signIn' | translate}}</h1>
       <div class="form-floating">
-        <input type="email" class="form-control" id="floatingInput" placeholder="{{'login.login' | translate}}"
-               required="" formControlName="login">
+        <input type="email"
+               class="form-control"
+               id="floatingInput"
+               placeholder="{{'login.login' | translate}}"
+               required=""
+               formControlName="login">
         <label for="floatingInput">{{'login.login' | translate}}</label>
-        <div *ngIf="formSignIn.get('login').invalid && formSignIn.get('login').touched" class="validator">
+        <div *ngIf="formSignIn.get('login').invalid && formSignIn.get('login').touched"
+             class="validator">
           <span *ngIf="formSignIn.get('login').errors.required">{{'login.loginEmpty' | translate}}</span>
           <span *ngIf="formSignIn.get('login').errors.email">{{'login.loginError' | translate}}</span>
         </div>
       </div>
       <br>
       <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="{{'login.password' | translate}}"
+        <input type="password"
+               class="form-control"
+               id="floatingPassword"
+               placeholder="{{'login.password' | translate}}"
                required
                formControlName="password">
         <label for="floatingPassword">{{'login.password' | translate}}</label>
-        <div *ngIf="formSignIn.get('password').invalid && formSignIn.get('password').touched" class="validator">
+        <div *ngIf="formSignIn.get('password').invalid && formSignIn.get('password').touched"
+             class="validator">
           <span *ngIf="formSignIn.get('password').errors.required">{{'login.passwordEmpty' | translate}}</span>
           <span *ngIf="formSignIn.get('password').errors.minlength">{{'login.passwordError' | translate}}</span>
         </div>
       </div>
       <br>
-      <h6 class="fs-6 fw-normal error text-center" *ngIf="serverError">{{serverError | translate}}</h6>
+      <h6 class="fs-6 fw-normal error text-center"
+          *ngIf="serverError">{{serverError | translate}}</h6>
 
-      <button type="submit" class="w-100 btn btn-lg btn-primary"
+      <button type="submit"
+              class="w-100 btn btn-lg btn-primary"
               [disabled]="formSignIn.invalid">{{'login.enter' | translate}}</button>
     </form>
     <br>
     <h5 class="fs-6 fw-normal text-center">{{ 'login.doctor' | translate }}
-      <a href (click)="onClickDoctor($event)"> {{'login.createAccount' | translate}}</a>
+      <a href
+         (click)="onClickDoctor($event)"> {{'login.createAccount' | translate}}</a>
     </h5>
     <p></p>
     <h6 class="fs-7 fw-normal text-center">{{'login.license' | translate }}
-      <a href (click)="onClickTerms($event)"> {{'login.termsOfUse' | translate}}</a>
+      <a href
+         (click)="onClickTerms($event)"> {{'login.termsOfUse' | translate}}</a>
       {{'shorts.and' | translate}}
-      <a href (click)="onClickPolicy($event)">{{'login.personalPolicy' | translate}}</a>
+      <a href
+         (click)="onClickPolicy($event)">{{'login.personalPolicy' | translate}}</a>
     </h6>
   </div>
 </div>
 
+
 <app-policy></app-policy>
 <app-terms></app-terms>
+<app-register (create)="Register($event)"></app-register>

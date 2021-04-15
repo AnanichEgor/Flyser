@@ -7,6 +7,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {LoginModule} from './login/login.module';
 import {AppTranslateModule} from './shared/app-translate.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ToastNotificationsModule} from 'ngx-toast-notifications';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import {AppTranslateModule} from './shared/app-translate.module';
     FormsModule,
     ReactiveFormsModule,
     LoginModule,
+    BrowserAnimationsModule, // required
+    ToastNotificationsModule,
     AppTranslateModule,
     AppRoutingModule,
   ],

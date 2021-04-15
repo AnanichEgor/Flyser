@@ -16,7 +16,29 @@
     "and": "and"
   },
   "buttonLabels": {
-    "close": "Close"
+    "close": "Close",
+    "createAccount": "Create Account",
+    "cancel": "Cancel"
+  },
+  "registration": {
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "sex": "Пол",
+    "male": "Men",
+    "female": "Woman",
+    "birthday": "Birthday",
+    "address": "Address",
+    "country": "Country",
+    "city": "City",
+    "contactInformation": "Contact information",
+    "cod": "Cod",
+    "phone": "Phone",
+    "usefulInformation": "Useful Information About You",
+    "fieldEmpty": "The field cannot be empty",
+    "confirmPassword": "Password does not match",
+    "account": "Account",
+    "successCreate": "Success! You will be able to enter you account after administrators confirmation.",
+    "processError": "Error! Please try again later."
   },
   "login": {
     "signIn": "Log in to your account",
@@ -24,8 +46,9 @@
     "loginEmpty": "email cannot be empty",
     "loginError": "email does not match the format",
     "password": "password",
-    "passwordEmpty": "password cannot be empty",
-    "passwordError": "must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters",
+    "passwordConfirm": "Confirm password",
+    "passwordEmpty": "Password cannot be empty",
+    "passwordError": "Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters",
     "passwordForget": "Forgot your password?",
     "enter": "Log In",
     "doctor": "Are you a doctor?",

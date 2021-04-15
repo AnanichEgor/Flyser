@@ -7,7 +7,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AppTranslateModule} from '../shared/app-translate.module';
 import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
-import { TermsComponent } from './terms/terms.component';
+import {TermsComponent} from './terms/terms.component';
 
 @NgModule({
   imports: [

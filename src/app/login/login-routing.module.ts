@@ -7,10 +7,7 @@ import {PolicyComponent} from './policy/policy.component';
 const routes: Routes = [
   {
     path: 'login',
-    component: LoginComponent,
-    children: [
-      {path: 'policy', component: PolicyComponent}
-    ]
+    component: LoginComponent
   },
   {
     path: 'register',
