@@ -1,5 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
+import {emailPattern} from '../../shared/consts';
 
 export interface Registration {
   email: string;
@@ -47,7 +48,7 @@ export class RegisterComponent implements OnInit {
       country: new FormControl(''),
       city: new FormControl(''),
       address: new FormControl(''),
-      email: new FormControl('', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]),
+      email: new FormControl('', [Validators.required, Validators.pattern(emailPattern)]),
       cod: new FormControl(''),
       phone: new FormControl(''),
       password: new FormControl('', [Validators.required, Validators.minLength(8), Validators.pattern('^.*(?=.{3,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[\\d\\x]).*$')]),

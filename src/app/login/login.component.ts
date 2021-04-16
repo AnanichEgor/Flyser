@@ -6,6 +6,7 @@ import {environment} from '../../environments/environment';
 import Modal from 'node_modules/bootstrap/js/dist/modal.js';
 import {Registration} from './register/register.component';
 import {TypeNotification, UtilsService} from '../shared/services/utils.service';
+import {emailPattern} from '../shared/consts';
 
 @Component({
   selector: 'app-login',
@@ -28,7 +29,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.formSignIn = new FormGroup({
-      login: new FormControl('', [Validators.email, Validators.required]),
+      login: new FormControl('', [Validators.email, Validators.required, Validators.pattern(emailPattern)]),
       password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.pattern('^.*(?=.{3,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[\\d\\x]).*$')])
     });
   }

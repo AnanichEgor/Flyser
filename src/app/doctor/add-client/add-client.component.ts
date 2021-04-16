@@ -1,25 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-
-export interface Client {
-  firstName: string;
-  lastName: string;
-  country: string;
-  city: string;
-  address: string;
-  email: string;
-  phoneCode: string;
-  phone: string;
-  children: {
-    firstName: string;
-    lastName: string;
-    photoUrl: string;
-    birthDay: Date;
-    sex: string;
-    diagnosis: string;
-    notes: string
-  };
-}
+import {emailPattern} from '../../shared/consts';
+import {TypeNotification, UtilsService} from '../../shared/services/utils.service';
+import {DoctorService} from '../services/doctor.service';
 
 @Component({
   selector: 'app-add-client',
@@ -29,7 +12,10 @@ export interface Client {
 export class AddClientComponent implements OnInit {
   formClient: FormGroup;
 
-  constructor() {
+  constructor(
+    private doctorService: DoctorService,
+    private utils: UtilsService
+  ) {
   }
 
   ngOnInit(): void {
@@ -39,7 +25,7 @@ export class AddClientComponent implements OnInit {
       country: new FormControl(''),
       city: new FormControl(''),
       address: new FormControl(''),
-      email: new FormControl(''),
+      email: new FormControl('', [Validators.email, Validators.pattern(emailPattern)]),
       phoneCode: new FormControl(''),
       phone: new FormControl(''),
       status: new FormControl(''),
@@ -54,7 +40,14 @@ export class AddClientComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.formClient);
-    console.log(this.formClient.value);
+    this.doctorService.registration(this.formClient)
+      .subscribe(
+        registration => {
+          this.utils.translateNotification('registration.successCreate');
+        },
+        err => {
+          this.utils.translateNotification('registration.processError', TypeNotification.danger);
+        }
+      );
   }
 }
