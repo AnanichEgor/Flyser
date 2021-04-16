@@ -26,11 +26,6 @@ export class RegisterComponent implements OnInit {
   public selected = false;
   @Output() create = new EventEmitter<Registration>();
 
-
-  forceNumeric(input): void {
-    input.target.value = input.target.value.replace(/[^\d]+/g, '');
-  }
-
   mather(field: AbstractControl): { [key: string]: boolean } | null {
     const password = this.formRegister.get('password');
     if (password.pristine || field.pristine) {

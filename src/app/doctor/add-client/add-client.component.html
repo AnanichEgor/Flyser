@@ -251,7 +251,7 @@
             <input type="tel"
                    class="form-control"
                    id="phoneCode"
-                   onkeyup="this.value = this.value.replace(/[^\d]/g,'');"
+                   mask="+000"
                    placeholder="{{'registration.cod' | translate}}*"
                    required
                    formControlName="phoneCode">
@@ -268,7 +268,7 @@
           <div class="form-floating mb-3">
             <input type="text"
                    class="form-control"
-                   onkeyup="this.value = this.value.replace(/[^\d]/g,'');"
+                   mask="(00) 000-00-00"
                    id="phone"
                    placeholder="{{'registration.lastName' | translate}}"
                    required

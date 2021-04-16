@@ -8,6 +8,11 @@ import {AppTranslateModule} from '../shared/app-translate.module';
 import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import {TermsComponent} from './terms/terms.component';
+import {IConfig, NgxMaskModule} from 'ngx-mask';
+
+const maskConfig: Partial<IConfig> = {
+  validation: false,
+};
 
 @NgModule({
   imports: [
@@ -17,6 +22,7 @@ import {TermsComponent} from './terms/terms.component';
     ReactiveFormsModule,
     AppTranslateModule,
     LoginRoutingModule,
+    NgxMaskModule.forRoot(maskConfig),
   ],
   declarations: [
     LoginComponent,

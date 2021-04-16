@@ -6,6 +6,11 @@ import {AppTranslateModule} from '../shared/app-translate.module';
 import {LoginRoutingModule} from '../login/login-routing.module';
 import {DoctorComponent} from './doctor.component';
 import { AddClientComponent } from './add-client/add-client.component';
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+
+const maskConfig: Partial<IConfig> = {
+  validation: false,
+};
 
 @NgModule({
   imports: [
@@ -15,6 +20,7 @@ import { AddClientComponent } from './add-client/add-client.component';
     ReactiveFormsModule,
     AppTranslateModule,
     LoginRoutingModule,
+    NgxMaskModule.forRoot(maskConfig),
   ],
   declarations: [
     DoctorComponent,
