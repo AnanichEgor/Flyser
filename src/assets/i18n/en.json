@@ -17,6 +17,7 @@
   },
   "buttonLabels": {
     "close": "Close",
+    "create": "Create",
     "createAccount": "Create Account",
     "cancel": "Cancel"
   },
@@ -31,6 +32,7 @@
     "country": "Country",
     "city": "City",
     "contactInformation": "Contact information",
+    "email": "e-mail",
     "cod": "Cod",
     "phone": "Phone",
     "usefulInformation": "Useful Information About You",
@@ -38,7 +40,11 @@
     "confirmPassword": "Password does not match",
     "account": "Account",
     "successCreate": "Success! You will be able to enter you account after administrators confirmation.",
-    "processError": "Error! Please try again later."
+    "processError": "Error! Please try again later.",
+    "personalInfoChildren": "Personal information about the child",
+    "personalInfoRepresentative": "Personal information about the legal representative",
+    "Diagnosis": "Diagnosis",
+    "specialMarks": "Special marks"
   },
   "login": {
     "signIn": "Log in to your account",

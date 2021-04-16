@@ -1,0 +1,302 @@
+<div class="wrapper">
+  <div class="form-signin">
+    <form [formGroup]="formClient"
+          (ngSubmit)="onSubmit()">
+      <h1 class="h3 mb-3 fw-normal text-start">{{'registration.personalInfoChildren' | translate}}*</h1>
+
+      <div class="row">
+        <div class="col">
+          <div class="form-floating mb-3">
+            <input type="email"
+                   class="form-control"
+                   id="childrenFirstName"
+                   placeholder="{{'registration.firstName' | translate}}*"
+                   required
+                   formControlName="childrenFirstName">
+            <label for="childrenFirstName">{{'registration.firstName' | translate}}*</label>
+            <div *ngIf="formClient.get('childrenFirstName').invalid && formClient.get('childrenFirstName').touched"
+                 class="validator">
+              <span *ngIf="formClient.get('childrenFirstName').errors.required">{{'registration.fieldEmpty' | translate}}
+                *</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="form-floating mb-3">
+            <input type="email"
+                   class="form-control"
+                   id="childrenLastName"
+                   placeholder="{{'registration.lastName' | translate}}*"
+                   required
+                   formControlName="childrenLastName">
+            <label for="childrenLastName">{{'registration.lastName' | translate}}*</label>
+            <div *ngIf="formClient.get('childrenLastName').invalid && formClient.get('childrenLastName').touched"
+                 class="validator">
+              <span *ngIf="formClient.get('childrenLastName').errors.required">{{'registration.fieldEmpty' | translate}}
+                *</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-2">
+          <div class="form-floating mb-3">
+            <input type="date"
+                   class="form-control"
+                   id="childrenBirthDay"
+                   formControlName="childrenBirthDay"
+                   placeholder="{{'registration.birthday' | translate}}*"
+                   required>
+            <label for="childrenBirthDay">{{'registration.birthday' | translate}}*</label>
+            <div *ngIf="formClient.get('childrenBirthDay').invalid && formClient.get('childrenBirthDay').touched"
+                 class="validator">
+              <span *ngIf="formClient.get('childrenBirthDay').errors.required">{{'registration.fieldEmpty' | translate}}
+                *</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-auto">
+          <div class="btn-group"
+               role="group"
+               aria-label="Radio toggle button group">
+
+            <input type="radio"
+                   class="btn-check"
+                   name="childrenSex"
+                   id="male"
+                   formControlName="childrenSex"
+                   value="male"
+                   autocomplete="off">
+            <label class="btn btn-outline-primary"
+                   for="male">{{'registration.male' | translate}}</label>
+
+            <input type="radio"
+                   class="btn-check"
+                   name="childrenSex"
+                   id="female"
+                   formControlName="childrenSex"
+                   value="female"
+                   autocomplete="off">
+            <label class="btn btn-outline-primary"
+                   for="female">{{'registration.female' | translate}}</label>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="form-floating">
+                <textarea class="form-control"
+                          placeholder="{{'registration.Diagnosis' | translate}}*"
+                          id="childrenDiagnosis"
+                          formControlName="childrenDiagnosis"
+                          maxlength="260"
+                          style="height: 5rem"
+                          required></textarea>
+            <label for="childrenDiagnosis">{{'registration.Diagnosis' | translate}}*</label>
+            <div *ngIf="formClient.get('childrenDiagnosis').invalid && formClient.get('childrenDiagnosis').touched"
+                 class="validator">
+              <span *ngIf="formClient.get('childrenDiagnosis').errors.required">{{'registration.fieldEmpty' | translate}}
+                *</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="row">
+        <div class="col">
+          <div class="form-floating">
+                <textarea class="form-control"
+                          placeholder="{{'registration.specialMarks' | translate}}"
+                          id="childrenNotes"
+                          formControlName="childrenNotes"
+                          maxlength="260"
+                          style="height: 5rem"></textarea>
+            <label for="childrenNotes">{{'registration.specialMarks' | translate}}</label>
+          </div>
+        </div>
+      </div>
+
+      <br>
+
+      <h1 class="h3 mb-3 fw-normal text-start">{{'registration.personalInfoRepresentative' | translate}}*</h1>
+
+      <div class="row">
+        <div class="col">
+          <div class="form-floating mb-3">
+            <input type="text"
+                   class="form-control"
+                   id="firstName"
+                   placeholder="{{'registration.firstName' | translate}}*"
+                   required
+                   formControlName="firstName">
+            <label for="firstName">{{'registration.firstName' | translate}}*</label>
+            <div *ngIf="formClient.get('firstName').invalid && formClient.get('firstName').touched"
+                 class="validator">
+              <span *ngIf="formClient.get('firstName').errors.required">{{'registration.fieldEmpty' | translate}}
+                *</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="form-floating mb-3">
+            <input type="text"
+                   class="form-control"
+                   id="lastName"
+                   placeholder="{{'registration.lastName' | translate}}*"
+                   required
+                   formControlName="lastName">
+            <label for="lastName">{{'registration.lastName' | translate}}*</label>
+            <div *ngIf="formClient.get('lastName').invalid && formClient.get('lastName').touched"
+                 class="validator">
+              <span *ngIf="formClient.get('lastName').errors.required">{{'registration.fieldEmpty' | translate}}*</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="form-floating mb-3">
+            <input type="text"
+                   class="form-control"
+                   id="status"
+                   formControlName="status"
+                   placeholder="{{'registration.status' | translate}}*"
+                   required>
+            <label for="status">{{'registration.status' | translate}}*</label>
+            <div *ngIf="formClient.get('status').invalid && formClient.get('status').touched"
+                 class="validator">
+              <span *ngIf="formClient.get('status').errors.required">{{'registration.fieldEmpty' | translate}}*</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h1 class="h5 mb-3 fw-normal text-start">{{'registration.contactInformation' | translate}}*</h1>
+
+      <div class="row">
+        <div class="col">
+          <div class="form-floating mb-3">
+            <input type="text"
+                   class="form-control"
+                   id="country"
+                   placeholder="{{'registration.Город' | translate}}*"
+                   required
+                   formControlName="country">
+            <label for="country">{{'registration.country' | translate}}*</label>
+            <div *ngIf="formClient.get('country').invalid && formClient.get('country').touched"
+                 class="validator">
+              <span *ngIf="formClient.get('country').errors.required">{{'registration.fieldEmpty' | translate}}*</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="form-floating mb-3">
+            <input type="text"
+                   class="form-control"
+                   id="city"
+                   placeholder="{{'registration.city' | translate}}*"
+                   required
+                   formControlName="city">
+            <label for="city">{{'registration.city' | translate}}*</label>
+            <div *ngIf="formClient.get('city').invalid && formClient.get('city').touched"
+                 class="validator">
+              <span *ngIf="formClient.get('city').errors.required">{{'registration.fieldEmpty' | translate}}*</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="form-floating mb-3">
+            <input type="text"
+                   class="form-control"
+                   id="address"
+                   formControlName="address"
+                   placeholder="{{'registration.address' | translate}}*"
+                   required>
+            <label for="address">{{'registration.address' | translate}}*</label>
+            <div *ngIf="formClient.get('address').invalid && formClient.get('address').touched"
+                 class="validator">
+              <span *ngIf="formClient.get('address').errors.required">{{'registration.fieldEmpty' | translate}}*</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="form-floating mb-3">
+            <input type="email"
+                   class="form-control"
+                   id="email"
+                   placeholder="{{'registration.email' | translate}}*"
+                   required
+                   formControlName="email">
+            <label for="email">{{'registration.email' | translate}}*</label>
+            <div *ngIf="formClient.get('email').invalid && formClient.get('email').touched"
+                 class="validator">
+              <span *ngIf="formClient.get('email').errors.required">{{'login.loginEmpty' | translate}}</span>
+              <span *ngIf="formClient.get('email').errors.pattern">{{'login.loginError' | translate}}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="form-floating mb-3">
+            <input type="tel"
+                   class="form-control"
+                   id="phoneCode"
+                   onkeyup="this.value = this.value.replace(/[^\d]/g,'');"
+                   placeholder="{{'registration.cod' | translate}}*"
+                   required
+                   formControlName="phoneCode">
+            <label for="phoneCode">{{'registration.cod' | translate}}*</label>
+            <div *ngIf="formClient.get('phoneCode').invalid && formClient.get('phoneCode').touched"
+                 class="validator">
+              <span *ngIf="formClient.get('phoneCode').errors.required">{{'registration.fieldEmpty' | translate}}
+                *</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="form-floating mb-3">
+            <input type="text"
+                   class="form-control"
+                   onkeyup="this.value = this.value.replace(/[^\d]/g,'');"
+                   id="phone"
+                   placeholder="{{'registration.lastName' | translate}}"
+                   required
+                   formControlName="phone">
+            <label for="phone">{{'registration.phone' | translate}}*</label>
+            <div *ngIf="formClient.get('phone').invalid && formClient.get('phone').touched"
+                 class="validator">
+              <span *ngIf="formClient.get('phone').errors.required">{{'registration.fieldEmpty' | translate}}*</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal">
+            {{'buttonLabels.cancel' | translate}}
+          </button>
+          <button type="submit"
+                  class="btn btn-primary"
+                  [disabled]="formClient.invalid">
+            {{'buttonLabels.create' | translate}}
+          </button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

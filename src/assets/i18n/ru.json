@@ -17,6 +17,7 @@
   },
   "buttonLabels": {
     "close": "Закрыть",
+    "create": "Создать",
     "createAccount": "Создать аккаунт",
     "cancel": "Отмена"
   },
@@ -31,6 +32,7 @@
     "country": "Страна",
     "city": "Город",
     "contactInformation": "Контактная информаци",
+    "email": "e-mail",
     "cod": "Код",
     "phone": "Телефон",
     "usefulInformation": "Полезная информация о вас",
@@ -38,7 +40,12 @@
     "confirmPassword": "Пароль не совпадает",
     "account": "Аккаунт",
     "successCreate": "Успешно! Вы сможете войти в свой аккаунт после активации администратором.",
-    "processError": "Ошибка! Повторите попытку позже."
+    "processError": "Ошибка! Повторите попытку позже.",
+    "personalInfoChildren": "Персональная информация о ребенке",
+    "personalInfoRepresentative": "Персональная информация о законном представителе",
+    "Diagnosis": "Диагноз",
+    "specialMarks": "Особые отметки",
+    "status": "Статус"
   },
   "login": {
     "signIn": "Войти в аккаунт",

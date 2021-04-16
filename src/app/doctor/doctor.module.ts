@@ -5,6 +5,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AppTranslateModule} from '../shared/app-translate.module';
 import {LoginRoutingModule} from '../login/login-routing.module';
 import {DoctorComponent} from './doctor.component';
+import { AddClientComponent } from './add-client/add-client.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import {DoctorComponent} from './doctor.component';
   ],
   declarations: [
     DoctorComponent,
+    AddClientComponent,
   ],
   exports: [DoctorComponent]
 })
