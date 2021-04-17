@@ -7,6 +7,8 @@ import {LoginRoutingModule} from '../login/login-routing.module';
 import {DoctorComponent} from './doctor.component';
 import { AddClientComponent } from './add-client/add-client.component';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { PanelComponent } from './panel/panel.component';
+import { ClientComponent } from './client/client.component';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -25,6 +27,8 @@ const maskConfig: Partial<IConfig> = {
   declarations: [
     DoctorComponent,
     AddClientComponent,
+    PanelComponent,
+    ClientComponent,
   ],
   exports: [DoctorComponent]
 })

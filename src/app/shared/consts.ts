@@ -3,7 +3,9 @@ const server = 'http://3.125.115.205:8082';
 export const urls = {
   login: `${server}/api/v1/login`,
   registration: `${server}/api/v1/doctors/registration`,
-  registrationClient: `${server}/api/v1/doctors/registration/client`
+  registrationClient: `${server}/api/v1/doctors/registration/client`,
+  refreshToken: `${server}/api/v1/login/update-token`,
+  clients: `${server}/api/v1/doctors/clients`,
 };
 
 export const cookieName = 'flyser-cookie';

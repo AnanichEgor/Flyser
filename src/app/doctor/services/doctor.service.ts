@@ -1,12 +1,11 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Registration} from '../../login/register/register.component';
 import {Observable} from 'rxjs';
 import {urls} from '../../shared/consts';
 import {FormGroup} from '@angular/forms';
 
-
 export interface Client {
+  id?: string;
   firstName: string;
   lastName: string;
   country: string;
@@ -16,11 +15,12 @@ export interface Client {
   phoneCode: string;
   phone: string;
   children: {
+    id?: string
     firstName: string;
     lastName: string;
-    photoUrl: string;
+    photoUrl?: string;
     birthDay: Date;
-    sex: string;
+    sex?: string;
     diagnosis: string;
     notes: string
   };
@@ -58,8 +58,12 @@ export class DoctorService {
   }
 
 
-  registration(form: FormGroup): Observable<Client> {
-    return this.http.post<Client>(urls.registrationClient, this.clientMapper(form));
+  registration(form: FormGroup): Observable<Client[]> {
+    return this.http.post<Client[]>(urls.registrationClient, this.clientMapper(form));
+  }
+
+  getClients(): Observable<any> {
+    return this.http.get<any>(urls.clients);
   }
 }
 

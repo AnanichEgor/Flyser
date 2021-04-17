@@ -1,32 +1,31 @@
 import {
+  HttpErrorResponse,
   HttpEvent,
   HttpEventType,
-  HttpHandler, HttpHeaders,
+  HttpHandler,
   HttpInterceptor,
   HttpRequest,
 } from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {tap} from 'rxjs/operators';
+import {Observable, throwError} from 'rxjs';
+import {catchError, flatMap, mergeMap} from 'rxjs/operators';
 import {Injectable} from '@angular/core';
 import {UserService} from './login/services/user.service';
+import {Router} from '@angular/router';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-  constructor(private userService: UserService) {
-  }
-
-  private getAuthParam(): string {
-    return `Bearer $(this.userService.getToken())`;
-
+  constructor(private userService: UserService, private router: Router) {
   }
 
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    console.log('Intercept request', req);
+
     let cloned;
+    const user = this.userService.gerUser();
+
     if (this.userService.isAuthorized) {
       cloned = req.clone({
         setHeaders: {
@@ -37,12 +36,20 @@ export class AuthInterceptor implements HttpInterceptor {
       cloned = req;
     }
 
-
     return next.handle(cloned).pipe(
-      tap(event => {
-        if (event.type === HttpEventType.Response) {
-          console.log('Interceptor response', event);
+      catchError((error: HttpErrorResponse) => {
+        console.log(error.error.error);
+        if (error.status === 401) {
+          if (error.error.error === 'TOKEN_HAS_EXPIRED') {
+            this.userService.refreshToken()
+              .subscribe(() => {
+                location.reload();
+              });
+          } else {
+            this.router.navigate(['/login']).then(_ => console.log('redirect to login page...'));
+          }
         }
+        return throwError(error);
       })
     );
   }
