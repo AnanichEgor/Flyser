@@ -26,7 +26,7 @@ export class AuthInterceptor implements HttpInterceptor {
     let cloned;
     const user = this.userService.gerUser();
 
-    if (this.userService.isAuthorized) {
+    if (this.userService.isAuthorized && !req.url.includes('update-token')) {
       cloned = req.clone({
         setHeaders: {
           Authorization: `Bearer ${this.userService.getToken()}`

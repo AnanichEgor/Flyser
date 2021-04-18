@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpParams} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {cookieName, urls} from '../../shared/consts';
 import {Observable, throwError} from 'rxjs';
 import {Registration} from '../register/register.component';
@@ -108,15 +108,18 @@ export class UserService {
   }
 
   refreshToken(): Observable<any> {
-    const body = new HttpParams()
-      .set('login', this.user.login)
-      .set('refreshToken', this.user.refreshToken);
+    const body = {
+      login: this.user.login,
+      refreshToken: this.user.refreshToken
+    };
+
     return this.http.post<RefreshToken>(urls.refreshToken, body)
       .pipe(
         tap(res => {
           this.setToken(res.token, res.refreshToken);
         }),
-        catchError(() => {
+        catchError((err) => {
+          console.log(err);
           this.setAuthorized(null);
           return throwError('Error update Token!');
         })
