@@ -1,11 +1,142 @@
+<div class="header">
+  <div class="d-flex bd-highlight px-3">
+    <div class="p-2 flex-fill bd-highlight">
+      <h6><small class="text-muted">Поиск</small></h6>
+      <div class="search">
+        <input type="text"
+               class="search-input"
+               placeholder="Поиск..."
+               name="">
+        <a href
+           class="search-icon">
+          <i class="bi-search"
+             style="font-size: 1.5rem; color: cornflowerblue;"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="p-2 flex-fill bd-highlight">
+      <h6><small class="text-muted">Фильтр</small></h6>
+      <div class="search filter">
+        <select class="search-input"
+                aria-label="Default select example">
+          <option value="0"
+                  selected>По фамилии <span>А-Я</span> &darr;
+          </option>
+          <option value="1">По фамилии <span>Я-А</span> &uarr;</option>
+          <option value="2">По возрасту <span>0-9</span> &darr;</option>
+          <option value="3">По возрасту <span>9-0</span> &uarr;</option>
+          <option value="3">По дате &darr;</option>
+          <option value="3">По дате &uarr;</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="p-2 flex-fill bd-highlight">
+      <div class="d-flex flex-column align-items-center">
+        <h6><small class="text-muted ">Карточек</small></h6>
+        <h4><small class="text-muted">{{clients?.length}}</small></h4>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex flex-wrap pt-3">
+    <div>
+      <h6><small class="text-muted filter-button">Статус</small></h6>
+      <div class="btn-group"
+           role="group"
+           aria-label="Basic radio toggle button group">
+        <input type="radio"
+               class="btn-check"
+               name="status"
+               id="status-all"
+               autocomplete="off"
+               checked>
+        <label class="btn btn-outline-primary"
+               for="status-all">Все</label>
+
+        <input type="radio"
+               class="btn-check"
+               name="status"
+               id="status-process"
+               autocomplete="off">
+        <label class="btn btn-outline-warning"
+               for="status-process">В процессе</label>
+
+        <input type="radio"
+               class="btn-check"
+               name="status"
+               id="status-ready"
+               autocomplete="off">
+        <label class="btn btn-outline-success"
+               for="status-ready">Готов</label>
+
+        <input type="radio"
+               class="btn-check"
+               name="status"
+               id="status-complete"
+               autocomplete="off">
+        <label class="btn btn-outline-info"
+               for="status-complete">Завершён</label>
+
+        <input type="radio"
+               class="btn-check"
+               name="status"
+               id="status-register"
+               autocomplete="off">
+        <label class="btn btn-outline-dark"
+               for="status-register">Регистрация</label>
+      </div>
+    </div>
+
+    <div>
+      <h6><small class="text-muted filter-button">Результат</small></h6>
+      <div class="btn-group"
+           role="group"
+           aria-label="Basic radio toggle button group">
+        <input type="radio"
+               class="btn-check"
+               name="options-outlined"
+               id="result-all"
+               autocomplete="off"
+               checked>
+        <label class="btn btn-outline-primary"
+               for="result-all">Все</label>
+
+        <input type="radio"
+               class="btn-check"
+               name="options-outlined"
+               id="result-super"
+               autocomplete="off">
+        <label class="btn btn-outline-success"
+               for="result-super">Отличный</label>
+
+        <input type="radio"
+               class="btn-check"
+               name="options-outlined"
+               id="result-ok"
+               autocomplete="off">
+        <label class="btn btn-outline-warning"
+               for="result-ok">Хороший</label>
+
+        <input type="radio"
+               class="btn-check"
+               name="options-outlined"
+               id="result-passable"
+               autocomplete="off">
+        <label class="btn btn-outline-danger"
+               for="result-passable">Удовлетворительный</label>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
 <div class="wrapper">
-  <app-client class="app_client"></app-client>
-  <app-client class="app_client"></app-client>
-  <app-client class="app_client"></app-client>
-  <app-client class="app_client"></app-client>
-  <app-client class="app_client"></app-client>
-  <app-client class="app_client"></app-client>
-  <app-client class="app_client"></app-client>
-  <app-client class="app_client"></app-client>
+  <div class="app_client"
+       *ngFor="let item of clients">
+    <app-client [client]="item"></app-client>
+  </div>
 </div>
 

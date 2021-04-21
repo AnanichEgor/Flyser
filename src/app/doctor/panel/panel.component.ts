@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {DoctorService} from '../services/doctor.service';
-import {map} from 'rxjs/operators';
+import {Client, DoctorService} from '../services/doctor.service';
+import {TypeNotification, UtilsService} from '../../shared/services/utils.service';
 
 @Component({
   selector: 'app-panel',
@@ -8,15 +8,15 @@ import {map} from 'rxjs/operators';
   styleUrls: ['./panel.component.scss']
 })
 export class PanelComponent implements OnInit {
+  clients: Client[];
 
-
-  constructor(private doctorService: DoctorService) {
+  constructor(private doctorService: DoctorService, private utils: UtilsService) {
   }
 
   ngOnInit(): void {
-    this.doctorService.getClients().subscribe(data => {
-      console.log(data);
-    });
+    this.doctorService.getClients().subscribe((data: Client[]) => {
+      this.clients = data;
+    }, error => this.utils.translateNotification('registration.getServerError', TypeNotification.danger));
   }
 
 }

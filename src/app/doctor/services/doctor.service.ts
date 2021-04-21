@@ -62,8 +62,8 @@ export class DoctorService {
     return this.http.post<Client[]>(urls.registrationClient, this.clientMapper(form));
   }
 
-  getClients(): Observable<any> {
-    return this.http.get<any>(urls.clients);
+  getClients(): Observable<Client[]> {
+    return this.http.get<Client[]>(urls.clients);
   }
 }
 

@@ -1,8 +1,71 @@
 <div class="sidebar">
-  <a [routerLink]="['/doctor','panel']">Панель</a>
-  <a [routerLink]="['/doctor','add_client']">Добавить клиента</a>
-  <a>Сообщения</a>
-  <a>Активация</a>
+  <div class="photo">
+    <img src=""
+         alt="">
+  </div>
+
+  <div class="d-flex justify-content-start menu">
+    <svg width="22"
+         height="24"
+         viewBox="0 0 22 24"
+         fill="none"
+         xmlns="http://www.w3.org/2000/svg">
+      <path d="M1 9.88014C1 8.92659 1.45332 8.02983 2.22115 7.46442L11 1L19.7788 7.46443C20.5467 8.02983 21 8.92659 21 9.88014V20.5C21 21.8807 19.8807 23 18.5 23H15C14.4477 23 14 22.5523 14 22V16C14 15.7239 13.7761 15.5 13.5 15.5H8.5C8.22386 15.5 8 15.7239 8 16V22C8 22.5523 7.55228 23 7 23H3.5C2.11929 23 1 21.8807 1 20.5V9.88014Z"
+            stroke="#2361BD"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+    </svg>
+    <a [routerLink]="['/doctor','panel']"><span>Панель</span></a>
+  </div>
+
+  <div class="d-flex justify-content-start menu">
+    <svg width="20"
+         height="20"
+         viewBox="0 0 20 20"
+         fill="none"
+         xmlns="http://www.w3.org/2000/svg">
+      <path d="M10 1V19"
+            stroke="#2361BD"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+      <path d="M1 10L19 10"
+            stroke="#2361BD"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+    </svg>
+    <a [routerLink]="['/doctor','add_client']"><span>Добавить клиента</span></a>
+  </div>
+
+  <div class="d-flex justify-content-start menu">
+    <svg width="26"
+         height="23"
+         viewBox="0 0 26 23"
+         fill="none"
+         xmlns="http://www.w3.org/2000/svg">
+      <path d="M7.00098 1C3.68727 1 1.00098 3.68629 1.00098 7V11C1.00098 11.2403 1.01511 11.4774 1.04259 11.7104C1.01489 11.802 1 11.8993 1 12V20.8258C1 21.6801 2.00212 22.141 2.65079 21.585L7.43827 17.4815C7.80075 17.1708 8.26243 17 8.73985 17H19.001C22.3147 17 25.001 14.3137 25.001 11V7C25.001 3.68629 22.3147 1 19.001 1H7.00098Z"
+            stroke="#2361BD"
+            stroke-width="2"/>
+    </svg>
+    <a><span>Сообщения</span></a>
+  </div>
+
+  <div class="d-flex justify-content-start menu">
+    <svg width="24"
+         height="24"
+         viewBox="0 0 24 24"
+         fill="none"
+         xmlns="http://www.w3.org/2000/svg">
+      <circle cx="12"
+              cy="12"
+              r="11"
+              stroke="#2361BD"
+              stroke-width="2"/>
+    </svg>
+    <a><span>Активация</span></a>
+  </div>
 </div>
 
 <div class="content">

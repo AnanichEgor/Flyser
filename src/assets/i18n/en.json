@@ -41,6 +41,7 @@
     "account": "Account",
     "successCreate": "Success! You will be able to enter you account after administrators confirmation.",
     "processError": "Error! Please try again later.",
+    "getServerError": "Error retrieving data from the server!",
     "personalInfoChildren": "Personal information about the child",
     "personalInfoRepresentative": "Personal information about the legal representative",
     "Diagnosis": "Diagnosis",

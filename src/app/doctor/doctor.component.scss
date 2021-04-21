@@ -1,8 +1,13 @@
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('/src/assets/fonts/ProximaNova-Regular.eot');
+}
+
 /* The side navigation menu */
 .sidebar {
   margin: 0;
   padding: 0;
-  width: 200px;
+  width: 342px;
   background-color: #f1f1f1;
   position: fixed;
   height: 100%;
@@ -15,6 +20,24 @@
   color: black;
   padding: 16px;
   text-decoration: none;
+
+  font-family: Proxima Nova, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 36px;
+
+  letter-spacing: 1px;
+
+  /* Grayscale / Body */
+  color: #4E4B66;
+}
+
+.sidebar svg {
+  margin-top: 1.25rem;
+  margin-right: 1.5rem;
+  margin-left: 1.5rem;
+
 }
 
 /* Active/current link */
@@ -24,16 +47,16 @@
 }
 
 /* Links on mouse-over */
-.sidebar a:hover:not(.active) {
-  background-color: #555;
-  color: white;
+.sidebar .menu:hover:not(.active) {
+  background: rgba(1, 163, 255, 0.1);
 }
 
 /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
 div.content {
-  margin-left: 200px;
-  padding: 1px 16px;
+  margin-left: 350px;
+  padding: 1rem;
   height: 1000px;
+  max-width: 940px;
 }
 
 /* On screens that are less than 700px wide, make the sidebar into a topbar */
@@ -54,3 +77,18 @@ div.content {
     float: none;
   }
 }
+
+/* Ellipse 1 */
+.photo {
+  width: 160px;
+  height: 160px;
+  border-radius: 80px;
+  background: #359A70;
+  margin-top: 48px;
+  margin-left: 91px;
+  margin-top: 91px;
+  margin-bottom: 48px;
+  filter: drop-shadow(0px 10px 30px rgba(100, 100, 100, 0.15));
+}
+
+

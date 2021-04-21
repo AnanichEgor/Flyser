@@ -38,7 +38,7 @@ export class UtilsService {
 
   public translateNotification(key: string, type: TypeNotification = TypeNotification.success,
                                position: PositionNotification = PositionNotification.bottomCenter): void {
-    this.translateService.get('registration.successCreate')
+    this.translateService.get(key)
       .pipe(first())
       .subscribe((value) =>
         this.showNotification(value, type, position)
