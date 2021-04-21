@@ -4,6 +4,25 @@ import {Observable} from 'rxjs';
 import {urls} from '../../shared/consts';
 import {FormGroup} from '@angular/forms';
 
+export enum SEX {
+  male = 'male',
+  female = 'female',
+  other = 'other',
+}
+
+export enum STATUS {
+  process = 'process',
+  complete = 'complete',
+  ready = 'ready',
+  registry = 'registry'
+}
+
+export enum RESULT {
+  normal = 'normal',
+  good = 'good',
+  excellent = 'excellent'
+}
+
 export interface Client {
   id?: string;
   firstName: string;
@@ -14,15 +33,18 @@ export interface Client {
   email: string;
   phoneCode: string;
   phone: string;
+  status: string; // "father",
   children: {
-    id?: string
     firstName: string;
     lastName: string;
     photoUrl?: string;
     birthDay: Date;
-    sex?: string;
+    sex?: SEX;
     diagnosis: string;
-    notes: string
+    notes: string;
+    result?: RESULT,
+    status?: STATUS,
+    courses?: number
   };
 }
 
@@ -45,6 +67,7 @@ export class DoctorService {
       email: values.email,
       phoneCode: values.phoneCode,
       phone: values.phone,
+      status: values.status,
       children: {
         firstName: values.childrenFirstName,
         lastName: values.childrenLastName,

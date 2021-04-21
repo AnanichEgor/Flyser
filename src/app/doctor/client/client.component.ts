@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Client} from '../services/doctor.service';
+import { STATUS, RESULT } from '../services/doctor.service';
 import moment from 'moment';
 
 const declension = ['год', 'года', 'лет'];
@@ -10,10 +11,9 @@ const declension = ['год', 'года', 'лет'];
   styleUrls: ['./client.component.scss']
 })
 export class ClientComponent implements OnInit {
-
-
   @Input() client: Client;
-
+  STATUS = STATUS;
+  RESULT = RESULT;
   constructor() {
   }
 

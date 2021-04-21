@@ -19,7 +19,14 @@
     "close": "Close",
     "create": "Create",
     "createAccount": "Create Account",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "complete": "Complete",
+    "process": "Process",
+    "ready": "Ready",
+    "registry": "Registry",
+    "normal": "Normal",
+    "good":"Good",
+    "excellent":"Excellent"
   },
   "registration": {
     "firstName": "First Name",

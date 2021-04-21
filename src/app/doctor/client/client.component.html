@@ -15,7 +15,7 @@
           <path d="M8 0L10.5863 4.44033L15.6085 5.52786L12.1846 9.35967L12.7023 14.4721L8 12.4L3.29772 14.4721L3.81535 9.35967L0.391548 5.52786L5.41374 4.44033L8 0Z"
                 fill="#F4B740"/>
         </svg>
-        <span class="points">5</span>
+        <span class="points">{{client.children.courses}}</span>
         <svg width="14"
              height="15"
              viewBox="0 0 14 15"
@@ -42,8 +42,36 @@
 
   <div class="footer">
     <div class="d-flex flex-row bd-highlight mb-0">
-      <div class="p-2 bd-highlight label label-finish">Flex item 1</div>
-      <div class="p-2 bd-highlight label label-process">Flex item 2</div>
+
+      <div *ngIf="client.children.status === STATUS.complete"
+           class="p-2 bd-highlight label label-complete">
+        {{'buttonLabels.complete' | translate}}
+      </div>
+      <div *ngIf="client.children.status === STATUS.process"
+           class="p-2 bd-highlight label label-process">
+        {{'buttonLabels.process' | translate}}
+      </div>
+      <div *ngIf="client.children.status === STATUS.ready"
+           class="p-2 bd-highlight label label-ready">
+        {{'buttonLabels.ready' | translate}}
+      </div>
+      <div *ngIf="client.children.status === STATUS.registry"
+           class="p-2 bd-highlight label label-registry">
+        {{'buttonLabels.registry' | translate}}
+      </div>
+
+      <div *ngIf="client.children.result === RESULT.normal"
+           class="p-2 bd-highlight label label-normal">
+        {{'buttonLabels.normal' | translate}}
+      </div>
+      <div *ngIf="client.children.result === RESULT.good"
+           class="p-2 bd-highlight label label-good">
+        {{'buttonLabels.good' | translate}}
+      </div>
+      <div *ngIf="client.children.result === RESULT.excellent"
+           class="p-2 bd-highlight label label-excellent">
+        {{'buttonLabels.excellent' | translate}}
+      </div>
     </div>
   </div>
 

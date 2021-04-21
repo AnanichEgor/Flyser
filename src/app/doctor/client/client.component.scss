@@ -66,9 +66,14 @@
   color: white;
   font-family: Proxima Nova, sans-serif;
   font-weight: normal;
+  caret-color: transparent !important;
 }
 
-.label-finish{
+span {
+  caret-color: transparent !important;
+}
+
+.label-complete{
   background-color: #3F8CFF;
 }
 
@@ -80,8 +85,20 @@
   background-color: #359A70;
 }
 
-.label-register {
+.label-registry  {
   background: #6E7191;
+}
+
+.label-normal {
+  background: #B9345F;
+}
+
+.label-good {
+  background: #F4B740;
+}
+
+.label-excellent {
+  background: #359A70;
 }
 
 .name {
