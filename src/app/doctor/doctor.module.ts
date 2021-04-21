@@ -10,6 +10,7 @@ import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { PanelComponent } from './panel/panel.component';
 import { ClientComponent } from './client/client.component';
 import {HeaderModule} from '../header/header.module';
+import {SidebarModule} from '../sidebar/sidebar.module';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -23,6 +24,7 @@ const maskConfig: Partial<IConfig> = {
     ReactiveFormsModule,
     AppTranslateModule,
     HeaderModule,
+    SidebarModule,
     LoginRoutingModule,
     NgxMaskModule.forRoot(maskConfig),
   ],
