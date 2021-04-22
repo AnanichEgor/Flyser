@@ -12,6 +12,8 @@ import {ToastNotificationsModule} from 'ngx-toast-notifications';
 import {AuthInterceptor} from './auth.interceptor';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {DoctorModule} from './doctor/doctor.module';
+import { ClientComponent } from './client/client.component';
+import {ClientModule} from './client/client.module';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -23,7 +25,7 @@ const INTERCEPTOR_PROVIDER: Provider = {
   declarations: [
     AppComponent,
     HomeComponent,
-    PageNotFoundComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +33,7 @@ const INTERCEPTOR_PROVIDER: Provider = {
     ReactiveFormsModule,
     LoginModule,
     DoctorModule,
+    ClientModule,
     BrowserAnimationsModule, // required
     ToastNotificationsModule,
     AppTranslateModule,

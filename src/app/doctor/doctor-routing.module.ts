@@ -9,7 +9,7 @@ const routes: Routes = [
   {
     path: 'doctor', canActivate: [AuthGuard], component: DoctorComponent, children: [
       {path: 'panel', component: PanelComponent},
-      {path: 'add_client', component: AddClientComponent},
+      {path: 'add_client', component: AddClientComponent}
     ]
   }
 ];

@@ -32,7 +32,7 @@ const maskConfig: Partial<IConfig> = {
     DoctorComponent,
     AddClientComponent,
     PanelComponent,
-    ClientComponent,
+    ClientComponent
   ],
   exports: [DoctorComponent]
 })

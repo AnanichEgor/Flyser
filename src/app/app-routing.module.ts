@@ -5,6 +5,7 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {LoginRoutingModule} from './login/login-routing.module';
 import {DoctorRoutingModule} from './doctor/doctor-routing.module';
 import {DoctorComponent} from './doctor/doctor.component';
+import {ClientRoutingModule} from './client/client-routing.module';
 
 const routers: Routes = [
   {path: '', canActivate: [AuthGuard], component: DoctorComponent},
@@ -19,7 +20,12 @@ const routers: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routers), LoginRoutingModule, DoctorRoutingModule],
+  imports: [
+    RouterModule.forRoot(routers),
+    LoginRoutingModule,
+    DoctorRoutingModule,
+    ClientRoutingModule
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

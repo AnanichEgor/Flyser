@@ -1,7 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Client} from '../services/doctor.service';
-import { STATUS, RESULT } from '../services/doctor.service';
+import {STATUS, RESULT} from '../services/doctor.service';
 import moment from 'moment';
+import {Router} from '@angular/router';
 
 const declension = ['год', 'года', 'лет'];
 
@@ -14,7 +15,8 @@ export class ClientComponent implements OnInit {
   @Input() client: Client;
   STATUS = STATUS;
   RESULT = RESULT;
-  constructor() {
+
+  constructor(private router: Router) {
   }
 
   ngOnInit(): void {
@@ -33,4 +35,7 @@ export class ClientComponent implements OnInit {
     return `${result} ${this.plural(result)}`;
   }
 
+  onClick($event: MouseEvent): void {
+    this.router.navigate(['client', this.client.id]);
+  }
 }

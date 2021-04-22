@@ -6,6 +6,7 @@ export const urls = {
   registrationClient: `${server}/api/v1/doctors/registration/client`,
   refreshToken: `${server}/api/v1/login/update-token`,
   clients: `${server}/api/v1/doctors/clients`,
+  clientInfo: `/api/v1/doctors/clients/{0}/info`
 };
 
 export const cookieName = 'flyser-cookie';

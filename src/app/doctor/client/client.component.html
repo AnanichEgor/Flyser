@@ -2,7 +2,8 @@
      [class.client-card-complete]="client.children.status === STATUS.complete"
      [class.client-card-process]="client.children.status === STATUS.process"
      [class.client-card-ready]="client.children.status === STATUS.ready"
-     [class.client-card-registry]="client.children.status === STATUS.registry">
+     [class.client-card-registry]="client.children.status === STATUS.registry"
+     (click)="onClick($event)">
   <div class="client_header">
     <div class="photo">
       <img [src]="client.children.photoUrl">
