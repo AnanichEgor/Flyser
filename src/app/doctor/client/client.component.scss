@@ -11,21 +11,6 @@
   border-radius: 16px;
 }
 
-.card-finish {
-  background: #E0EDFF;
-  border: 1px solid #3F8CFF;
-}
-
-.card-process {
-  background: #FFF0D4;
-  border: 1px solid #F4B740;
-}
-
-.card-ready {
-  background: #EBFFF7;
-  border: 1px solid #6DDFAF;
-}
-
 .label-register {
   background: #EFF0F6;
   border: 1px solid #6E7191;
@@ -62,16 +47,38 @@
 .label {
   height: 2.5rem;
   border-radius: 8px;
-  margin-left: 1rem;
+  margin-left: 0.45rem;
   color: white;
   font-family: Proxima Nova, sans-serif;
   font-weight: normal;
+  font-size: 1rem;
   caret-color: transparent !important;
 }
 
 span {
   caret-color: transparent !important;
 }
+
+.client-card-complete{
+  background: #E0EDFF;
+  border: 1px solid #3F8CFF;
+}
+
+.client-card-process {
+  background: #FFF0D4;
+  border: 1px solid #F4B740;
+}
+
+.client-card-ready{
+  background: #EBFFF7;
+  border: 1px solid #6DDFAF;
+}
+
+.client-card-registry  {
+  background: #EFF0F7;
+  border: 1px solid #6E7191;
+}
+
 
 .label-complete{
   background-color: #3F8CFF;

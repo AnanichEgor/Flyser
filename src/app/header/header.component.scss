@@ -1,5 +1,5 @@
 .header {
-  max-width: 940px;
+  //max-width: auto;
   min-width: 295px;
   padding-bottom: 1rem;
   //margin: 1rem;
@@ -8,5 +8,7 @@
   /* Grayscale / Line */
   border: 1px solid #D6D8E7;
   border-radius: 16px;
-
+  margin-left: 1rem;
+  margin-top: 1rem;
+  margin-right: 1rem;
 }

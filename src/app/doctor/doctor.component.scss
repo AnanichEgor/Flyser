@@ -54,9 +54,9 @@
 /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
 div.content {
   margin-left: 350px;
-  padding: 1rem;
+  //padding: 1rem;
   height: 1000px;
-  max-width: 940px;
+  max-width: 975px;
 }
 
 /* On screens that are less than 700px wide, make the sidebar into a topbar */

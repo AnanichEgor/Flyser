@@ -1,4 +1,8 @@
-<div class="client-card card-finish">
+<div class="client-card card-finish"
+     [class.client-card-complete]="client.children.status === STATUS.complete"
+     [class.client-card-process]="client.children.status === STATUS.process"
+     [class.client-card-ready]="client.children.status === STATUS.ready"
+     [class.client-card-registry]="client.children.status === STATUS.registry">
   <div class="client_header">
     <div class="photo">
       <img [src]="client.children.photoUrl">
