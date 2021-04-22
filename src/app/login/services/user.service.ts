@@ -6,10 +6,16 @@ import {Registration} from '../register/register.component';
 import {CookieService} from 'ngx-cookie-service';
 import {catchError, tap} from 'rxjs/operators';
 
+export enum ROLE {
+  ROLE_ADMIN = 'ROLE_ADMIN',
+  ROLE_DOCTOR = 'ROLE_DOCTOR',
+  ROLE_CLIENT = 'ROLE_CLIENT'
+}
+
 export interface User {
   login: string;
   token: string;
-  role: string;
+  role: ROLE;
   refreshToken: string;
   enabled: boolean;
   emailVerified: boolean;

@@ -1,8 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {Client, DoctorService} from '../doctor/services/doctor.service';
+import {Client} from '../doctor/services/doctor.service';
 import {ActivatedRoute, Params} from '@angular/router';
 import {TypeNotification, UtilsService} from '../shared/services/utils.service';
 import {ClientService} from './services/client.service';
+import {SIDEBAR} from '../sidebar/sidebar.component';
+import {ROLE, UserService} from '../login/services/user.service';
 
 @Component({
   selector: 'app-client',
@@ -10,13 +12,16 @@ import {ClientService} from './services/client.service';
   styleUrls: ['./client.component.scss']
 })
 export class ClientComponent implements OnInit {
+  SIDEBAR: SIDEBAR;
 
   info: Client;
 
   constructor(
     private clientService: ClientService,
     private route: ActivatedRoute,
-    private utils: UtilsService) {
+    private utils: UtilsService,
+    private userService: UserService) {
+    this.SIDEBAR = userService.gerUser().role !== ROLE.ROLE_CLIENT ? SIDEBAR.doctor_client : SIDEBAR.client;
   }
 
   readClient(id: string): void {
