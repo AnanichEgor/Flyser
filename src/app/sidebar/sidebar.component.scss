@@ -34,16 +34,18 @@
 }
 
 .sidebar svg {
-  margin-top: 1.25rem;
   margin-right: 1.5rem;
   margin-left: 1.5rem;
 
 }
 
+a {
+  width: 340px;
+}
+
 /* Active/current link */
-.sidebar a.active {
-  background-color: #4CAF50;
-  color: white;
+.menu a.active {
+  background: rgba(1, 163, 255, 0.1);
 }
 
 /* Links on mouse-over */
