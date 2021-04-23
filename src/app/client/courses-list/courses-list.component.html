@@ -1,0 +1,26 @@
+<app-header>
+  <div class="information">
+    <div class="name">{{ clientInfo?.firstName + ' ' + clientInfo?.lastName  }}</div>
+    <div class="ages">{{ages}}</div>
+    <div class="diagnosis">{{clientInfo?.children?.diagnosis}}</div>
+    <div class="register"><span>Регистрация: </span>99.99.9999</div>
+  </div>
+</app-header>
+
+<div class="wrapper">
+  <div class="courses" *ngFor="let course of courses">
+    <app-game-card [course]="course"></app-game-card>
+  </div>
+  <div class="cards add-new-course d-flex justify-content-center flex-column ">
+    <div class="d-flex justify-content-center">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 1V19" stroke="#0E57C5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M1 10L19 10" stroke="#0E57C5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="text">
+      Начать новый курс коррекции
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,41 @@
+<div class="cards"
+     [class.card-process]="course.courseStatus === COURSE_STATUS.inProgress"
+     (click)="onClick(course.course)">
+  <div class="header">
+    <div class="photo">
+      <img [src]="course.courseUrl">
+    </div>
+    <div class="name">
+      <span class="game-name">{{course.course}}</span>
+    </div>
+  </div>
+
+  <div class="line"></div>
+
+  <div class="footer">
+    <div class="d-flex flex-row bd-highlight mb-0 labels">
+      <!--      <div *ngIf="course.courseStatus === COURSE_STATUS.complete"-->
+      <!--           class="p-2 bd-highlight label label-complete">-->
+      <!--        {{'buttonLabels.complete' | translate}}-->
+      <!--      </div>-->
+      <div *ngIf="course.courseStatus === COURSE_STATUS.inProgress"
+           class="p-2 bd-highlight label label-process">
+        {{'buttonLabels.process' | translate}}
+      </div>
+
+      <div class="d-flex flex-column start">
+        <span class="date-name">Начало</span>
+        <div class="date">{{course.courseStart | date:'shortDate'}}</div>
+      </div>
+      <div class="d-flex flex-column end">
+        <span class="date-name">Завершено</span>
+        <div class="date">{{course.courseEnd | date:'shortDate'}}</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+

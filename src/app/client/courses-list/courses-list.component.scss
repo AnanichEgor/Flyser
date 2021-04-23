@@ -1,0 +1,75 @@
+.wrapper {
+  display: flex;
+  align-items: start;
+  flex-wrap: wrap;
+  max-width: 980px;
+}
+
+.information {
+  padding: 1rem;
+  font-family: Proxima Nova, sans-serif;
+  font-style: normal;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 36px;
+  letter-spacing: 1px;
+  color: #14142B;
+}
+
+.ages {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.5px;
+  color: #4E4B66;
+}
+
+.diagnosis {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 16px;
+  line-height: 20px;
+  color: #4E4B66;
+}
+
+.register {
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 0.5px;
+  color: #4E4B66;
+}
+
+.register span {
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 0.5px;
+  color: #4E4B66;
+}
+
+.add-new-course {
+  margin-top: 1rem;
+  margin-right: 1rem;
+  background: #FCFCFC;
+  border: 1px dashed #0E57C5;
+}
+
+.text {
+  font-family: Proxima Nova, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 28px;
+  text-align: center;
+  letter-spacing: 0.75px;
+  color: #0E57C5;
+}
+
+
+
+
+

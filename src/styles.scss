@@ -1,7 +1,69 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('/src/assets/fonts/ProximaNova-Regular.eot');
+}
+
 * {
   margin: 0;
   padding: 0;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  width: 293px;
+  height: 193px;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.card-complete{
+  background: #E0EDFF;
+  border: 1px solid #3F8CFF;
+}
+
+.card-process {
+  background: #FFF0D4;
+  border: 1px solid #F4B740;
+}
+
+.card-ready{
+  background: #EBFFF7;
+  border: 1px solid #6DDFAF;
+}
+
+.card-registry  {
+  background: #EFF0F7;
+  border: 1px solid #6E7191;
+}
+
+.label-complete{
+  background-color: #3F8CFF;
+}
+
+.label-process {
+  background-color: #F4B740;
+}
+
+.label-ready{
+  background-color: #359A70;
+}
+
+.label-registry  {
+  background: #6E7191;
+}
+
+.label-normal {
+  background: #B9345F;
+}
+
+.label-good {
+  background: #F4B740;
+}
+
+.label-excellent {
+  background: #359A70;
 }
 

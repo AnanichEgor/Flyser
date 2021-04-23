@@ -1,4 +1,4 @@
-import {CUSTOM_ELEMENTS_SCHEMA, NgModule, Provider} from '@angular/core';
+import {NgModule, Provider} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
@@ -12,7 +12,7 @@ import {ToastNotificationsModule} from 'ngx-toast-notifications';
 import {AuthInterceptor} from './auth.interceptor';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {DoctorModule} from './doctor/doctor.module';
-import { ClientComponent } from './client/client.component';
+
 import {ClientModule} from './client/client.module';
 
 const INTERCEPTOR_PROVIDER: Provider = {

@@ -14,26 +14,13 @@ import {ROLE, UserService} from '../login/services/user.service';
 export class ClientComponent implements OnInit {
   SIDEBAR: SIDEBAR;
 
-  info: Client;
-
   constructor(
-    private clientService: ClientService,
-    private route: ActivatedRoute,
-    private utils: UtilsService,
+    public clientService: ClientService,
     private userService: UserService) {
     this.SIDEBAR = userService.gerUser().role !== ROLE.ROLE_CLIENT ? SIDEBAR.doctor_client : SIDEBAR.client;
   }
 
-  readClient(id: string): void {
-    this.clientService.getClientsInfo(id).subscribe((data: Client) => {
-      this.info = data;
-      console.log(this.info);
-    }, error => this.utils.translateNotification('registration.getServerError', TypeNotification.danger));
-  }
-
   ngOnInit(): void {
-    this.route.params.subscribe((params: Params) => {
-      this.readClient(params.id);
-    });
+
   }
 }

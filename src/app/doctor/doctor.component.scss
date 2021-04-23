@@ -1,81 +1,8 @@
-@font-face {
-  font-family: 'Proxima Nova';
-  src: url('/src/assets/fonts/ProximaNova-Regular.eot');
-}
-
-/* The side navigation menu */
-.sidebar {
-  margin: 0;
-  padding: 0;
-  width: 342px;
-  background-color: #f1f1f1;
-  position: fixed;
-  height: 100%;
-  overflow: auto;
-}
-
-/* Sidebar links */
-.sidebar a {
-  display: block;
-  color: black;
-  padding: 16px;
-  text-decoration: none;
-
-  font-family: Proxima Nova, sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 36px;
-
-  letter-spacing: 1px;
-
-  /* Grayscale / Body */
-  color: #4E4B66;
-}
-
-.sidebar svg {
-  margin-top: 1.25rem;
-  margin-right: 1.5rem;
-  margin-left: 1.5rem;
-
-}
-
-/* Active/current link */
-.sidebar a.active {
-  background-color: #4CAF50;
-  color: white;
-}
-
-/* Links on mouse-over */
-.sidebar .menu:hover:not(.active) {
-  background: rgba(1, 163, 255, 0.1);
-}
-
-/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
 div.content {
   margin-left: 355px;
   height: 1000px;
   max-width: 927px;
   padding-top: 1rem;
-}
-
-/* On screens that are less than 700px wide, make the sidebar into a topbar */
-@media screen and (max-width: 700px) {
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
-  .sidebar a {float: left;}
-  div.content {margin-left: 0;}
-}
-
-/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
-@media screen and (max-width: 400px) {
-  .sidebar a {
-    text-align: center;
-    float: none;
-  }
 }
 
 /* Ellipse 1 */
@@ -84,7 +11,6 @@ div.content {
   height: 160px;
   border-radius: 80px;
   background: #359A70;
-  margin-top: 48px;
   margin-left: 91px;
   margin-top: 91px;
   margin-bottom: 48px;

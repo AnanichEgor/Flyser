@@ -16,6 +16,7 @@ export enum SIDEBAR {
 export class SidebarComponent implements OnInit {
   SIDEBAR = SIDEBAR;
   @Input() state: SIDEBAR;
+  @Input() image: string;
 
   constructor(private sidebarService: SidebarService) {
   }

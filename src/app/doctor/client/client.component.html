@@ -1,9 +1,9 @@
-<div class="client-card card-finish"
-     [class.client-card-complete]="client.children.status === STATUS.complete"
-     [class.client-card-process]="client.children.status === STATUS.process"
-     [class.client-card-ready]="client.children.status === STATUS.ready"
-     [class.client-card-registry]="client.children.status === STATUS.registry"
-     (click)="onClick($event)">
+<div class="cards"
+     [class.card-complete]="client.children.status === STATUS.complete"
+     [class.card-process]="client.children.status === STATUS.process"
+     [class.card-ready]="client.children.status === STATUS.ready"
+     [class.card-registry]="client.children.status === STATUS.registry"
+     (click)="onClick(client.id)">
   <div class="client_header">
     <div class="photo">
       <img [src]="client.children.photoUrl">
@@ -37,7 +37,7 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"/>
         </svg>
-        <span class="ages">{{diffAgeNow}}</span>
+        <span class="ages">{{utils.getDiffAgeNow(client.children.birthDay)}}</span>
 
       </div>
     </div>
@@ -46,7 +46,7 @@
   <div class="line"></div>
 
   <div class="footer">
-    <div class="d-flex flex-row bd-highlight mb-0">
+    <div class="d-flex flex-row bd-highlight mb-0 labels">
 
       <div *ngIf="client.children.status === STATUS.complete"
            class="p-2 bd-highlight label label-complete">

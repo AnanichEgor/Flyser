@@ -6,18 +6,22 @@ import {ClientComponent} from './client.component';
 import {SidebarModule} from '../sidebar/sidebar.module';
 import {AppTranslateModule} from '../shared/app-translate.module';
 import {RouterModule} from '@angular/router';
+import { GameCardComponent } from './game-card/game-card.component';
+import {CoursesListComponent} from './courses-list/courses-list.component';
+import {HeaderModule} from '../header/header.module';
 
 
 
 @NgModule({
-  declarations: [ClientComponent],
+  declarations: [ClientComponent, GameCardComponent, CoursesListComponent],
   imports: [
     CommonModule,
     BrowserModule,
     HttpClientModule,
     AppTranslateModule,
     SidebarModule,
-    RouterModule
+    RouterModule,
+    HeaderModule
   ]
 })
 export class ClientModule { }

@@ -1,10 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Client} from '../services/doctor.service';
 import {STATUS, RESULT} from '../services/doctor.service';
-import moment from 'moment';
 import {Router} from '@angular/router';
-
-const declension = ['год', 'года', 'лет'];
+import {UtilsService} from '../../shared/services/utils.service';
 
 @Component({
   selector: 'app-client',
@@ -12,30 +10,19 @@ const declension = ['год', 'года', 'лет'];
   styleUrls: ['./client.component.scss']
 })
 export class ClientComponent implements OnInit {
+
+
   @Input() client: Client;
   STATUS = STATUS;
   RESULT = RESULT;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, public utils: UtilsService) {
   }
 
   ngOnInit(): void {
   }
 
-  private plural(num: number, titles = declension): string {
-    const cases = [2, 0, 1, 1, 1, 2];
-    return titles[(num % 100 > 4 && num % 100 < 20) ? 2 : cases[(num % 10 < 5) ? num % 10 : 5]];
-  }
-
-  get diffAgeNow(): string {
-    const starts = moment(this.client.children.birthDay);
-    const ends = moment();
-    const result = ends.diff(starts, 'years');
-
-    return `${result} ${this.plural(result)}`;
-  }
-
-  onClick($event: MouseEvent): void {
-    this.router.navigate(['client', this.client.id]);
+  onClick(id: string): void {
+    this.router.navigate(['client', 'correction-course'], {queryParams: {clientId: this.client.id}});
   }
 }

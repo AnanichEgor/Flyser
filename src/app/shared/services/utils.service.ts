@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Toaster} from 'ngx-toast-notifications';
 import {TranslateService} from '@ngx-translate/core';
 import {first} from 'rxjs/operators';
+import moment from 'moment';
 
 export enum TypeNotification {
   primary = 'primary',
@@ -23,6 +24,8 @@ export enum PositionNotification {
   bottomRight = 'bottom-right'
 }
 
+const declension = ['год', 'года', 'лет'];
+
 @Injectable({
   providedIn: 'root'
 })
@@ -35,6 +38,10 @@ export class UtilsService {
   ) {
   }
 
+  private plural(num: number, titles = declension): string {
+    const cases = [2, 0, 1, 1, 1, 2];
+    return titles[(num % 100 > 4 && num % 100 < 20) ? 2 : cases[(num % 10 < 5) ? num % 10 : 5]];
+  }
 
   public translateNotification(key: string, type: TypeNotification = TypeNotification.success,
                                position: PositionNotification = PositionNotification.bottomCenter): void {
@@ -54,5 +61,13 @@ export class UtilsService {
       type,
       position
     });
+  }
+
+  getDiffAgeNow(birthDay: Date): string {
+    const starts = moment(birthDay);
+    const ends = moment();
+    const result = ends.diff(starts, 'years');
+
+    return `${result} ${this.plural(result)}`;
   }
 }
