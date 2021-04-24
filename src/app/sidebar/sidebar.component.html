@@ -42,7 +42,7 @@
   </div>
   <div *ngIf="state === (SIDEBAR.client && SIDEBAR.doctor_client)" id="client">
     <div class="d-flex justify-content-start menu">
-      <a [routerLink]="['/doctor','panel']"
+      <a [routerLink]="['/client','correction-course']" [queryParams]="{clientId: client?.id}"
          routerLinkActive="active">
         <svg width="22"
              height="24"
@@ -128,7 +128,7 @@
         <span>Выйти</span></a>
     </div>
     <div *ngIf="state === SIDEBAR.doctor_client" class="d-flex justify-content-start menu">
-      <a [routerLink]="['/doctor','panel']" routerLinkActive="active">
+      <a (click)="sidebarService.toBack()">
         <svg width="19" height="16" viewBox="0 0 19 16" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M7.71729 1L1.00021 8L7.71729 15" stroke="#0E57C5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           <line x1="1" y1="-1" x2="16.7331" y2="-1" transform="matrix(1 0 0 -1 1.26709 7.03174)" stroke="#0E57C5" stroke-width="2" stroke-linecap="round"/>

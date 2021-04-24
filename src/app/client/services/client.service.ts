@@ -7,7 +7,8 @@ import {TypeNotification, UtilsService} from '../../shared/services/utils.servic
 import {ROLE} from '../../login/services/user.service';
 
 export enum COURSE_STATUS {
-  inProgress = 'IN_PROGRESS'
+  process = 'process',
+  complete = 'complete'
 }
 
 export interface ClientInfo {
@@ -19,7 +20,7 @@ export interface ClientInfo {
 export interface AvailableCourse {
   id: string;
   courseName: string;
-  courseUrl: string;
+  courseIcon: string;
   sessions: number;
 }
 
@@ -53,7 +54,6 @@ export class ClientService {
           .subscribe(
             (data: ClientInfo) => {
               this.clientInfo = data;
-              console.log('clientInfo: ', this.clientInfo);
               observer.next(data.parent);
             },
             error => this.utils.translateNotification('registration.getServerError', TypeNotification.danger)
@@ -68,5 +68,17 @@ export class ClientService {
 
   getAvailableCourses(): Observable<AvailableCourse[]> {
     return this.http.get<AvailableCourse[]>(urls.availableCourses);
+  }
+
+  activationCurse(clientId: string, courseId: string): void {
+    this.http.post<boolean>(
+      urls.activationCourse
+        .replace('{0}', clientId)
+        .replace('{1}', courseId), {})
+      .subscribe(
+        data => this.utils.translateNotification('registration.successCreate'),
+        error => this.utils.translateNotification('registration.getServerError', TypeNotification.danger)
+      )
+    ;
   }
 }

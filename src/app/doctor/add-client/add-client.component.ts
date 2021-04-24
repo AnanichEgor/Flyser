@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {emailPattern} from '../../shared/consts';
 import {TypeNotification, UtilsService} from '../../shared/services/utils.service';
 import {DoctorService} from '../services/doctor.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-client',
@@ -14,7 +15,8 @@ export class AddClientComponent implements OnInit {
 
   constructor(
     private doctorService: DoctorService,
-    private utils: UtilsService
+    private utils: UtilsService,
+    private router: Router
   ) {
   }
 
@@ -43,11 +45,16 @@ export class AddClientComponent implements OnInit {
     this.doctorService.registration(this.formClient)
       .subscribe(
         registration => {
-          this.utils.translateNotification('registration.successCreate');
+          this.utils.translateNotification('registration.successAddClient');
+          this.router.navigate(['doctor/panel']);
         },
         err => {
           this.utils.translateNotification('registration.processError', TypeNotification.danger);
         }
       );
+  }
+
+  onCancel(): void {
+    this.router.navigate(['doctor/panel']);
   }
 }

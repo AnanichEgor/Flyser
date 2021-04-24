@@ -1,4 +1,4 @@
-<app-sidebar [state]="SIDEBAR" [image]="image"></app-sidebar>
+<app-sidebar [state]="SIDEBAR" [image]="client?.children.photoUrl" [client]="client || null"></app-sidebar>
 
 <div class="content">
   <router-outlet></router-outlet>

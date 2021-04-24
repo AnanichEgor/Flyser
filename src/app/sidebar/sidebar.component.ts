@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {SidebarService} from './services/sidebar.service';
+import {Client} from '../doctor/services/doctor.service';
 
 export enum SIDEBAR {
   admin = 'admin',
@@ -17,12 +18,13 @@ export class SidebarComponent implements OnInit {
   SIDEBAR = SIDEBAR;
   @Input() state: SIDEBAR;
   @Input() image: string;
+  @Input() client: Client;
 
   get photo(): string {
     return this.image ?? 'assets/img/doctor.jpg';
   }
 
-  constructor(private sidebarService: SidebarService) {
+  constructor(public sidebarService: SidebarService) {
   }
 
   ngOnInit(): void {

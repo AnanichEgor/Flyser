@@ -7,6 +7,36 @@
   cursor: default !important;
 }
 
+.modal-title-text {
+  padding: 1rem;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 36px;
+  letter-spacing: 1px;
+  color: #14142B;
+}
+
+.modal-text {
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+  color: #14142B;
+}
+
+.btn-close {
+  width: 1.5rem;
+}
+
+.modal-footer-buttons button {
+  margin: 1rem 0.5rem;
+  width: 10rem;
+
+}
+
 .d-grid {
   padding-right: 1rem;
 }
@@ -57,7 +87,7 @@
   color: #14142B;
 }
 
-.date-name{
+.date-name {
   font-weight: normal;
   font-size: 10px;
   line-height: 12px;

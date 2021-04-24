@@ -1,5 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {STATUS} from '../../doctor/services/doctor.service';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {AvailableCourse, Course, COURSE_STATUS} from '../services/client.service';
 
 @Component({
@@ -13,13 +12,19 @@ export class GameCardComponent implements OnInit {
   @Input() course: Course;
   @Input() availableCourse: AvailableCourse;
 
+  @Output() onModalConfirm: EventEmitter<string> = new EventEmitter<string>();
+
   constructor() {
   }
 
   ngOnInit(): void {
   }
 
-  onClick(id: any) {
+  onModalClick(id: string): void {
+    this.onModalConfirm.emit(id);
+  }
+
+  onClick(course: string): void {
 
   }
 }

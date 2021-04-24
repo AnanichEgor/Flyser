@@ -47,6 +47,7 @@
     "confirmPassword": "Password does not match",
     "account": "Account",
     "successCreate": "Success! You will be able to enter you account after administrators confirmation.",
+    "successAddClient": "Success! You have added a new customer.",
     "processError": "Error! Please try again later.",
     "getServerError": "Error retrieving data from the server!",
     "personalInfoChildren": "Personal information about the child",

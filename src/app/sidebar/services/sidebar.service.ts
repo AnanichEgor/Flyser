@@ -1,9 +1,17 @@
-import { Injectable } from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SidebarService {
 
-  constructor() { }
+  public toBack$: EventEmitter<boolean>;
+
+  constructor() {
+    this.toBack$ = new EventEmitter();
+  }
+
+  toBack(): void {
+    this.toBack$.emit(true);
+  }
 }

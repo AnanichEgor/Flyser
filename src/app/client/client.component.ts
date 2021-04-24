@@ -12,7 +12,7 @@ import {ROLE, UserService} from '../login/services/user.service';
 })
 export class ClientComponent implements OnInit {
   SIDEBAR: SIDEBAR;
-  image: string;
+  client: Client;
 
   constructor(
     public clientService: ClientService,
@@ -24,7 +24,7 @@ export class ClientComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.queryParamMap.get('clientId');
     this.clientService.getClientsInfo(id).subscribe((data: Client) => {
-      this.image = data.children.photoUrl;
+      this.client = data;
     });
   }
 }

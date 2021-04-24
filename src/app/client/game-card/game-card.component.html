@@ -1,10 +1,10 @@
 <div class="cards"
-     [class.card-process]="course?.courseStatus === COURSE_STATUS.inProgress"
-     [class.card-complete]="availableCourse"
+     [class.card-process]="course?.courseStatus === COURSE_STATUS.process"
+     [class.card-complete]="course?.courseStatus === COURSE_STATUS.complete || availableCourse"
      (click)="onClick(course?.course)">
   <div class="header">
     <div class="photo">
-      <img [src]="course?.courseUrl || availableCourse?.courseUrl">
+      <img [src]="course?.courseUrl || availableCourse?.courseIcon" alt="Image of courses">
     </div>
     <div class="name">
       <span class="game-name">{{course?.course || availableCourse?.courseName}}</span>
@@ -15,11 +15,11 @@
 
   <div class="footer">
     <div *ngIf="course" class="d-flex flex-row bd-highlight mb-0 labels">
-      <!--      <div *ngIf="course.courseStatus === COURSE_STATUS.complete"-->
-      <!--           class="p-2 bd-highlight label label-complete">-->
-      <!--        {{'buttonLabels.complete' | translate}}-->
-      <!--      </div>-->
-      <div *ngIf="course.courseStatus === COURSE_STATUS.inProgress"
+      <div *ngIf="course.courseStatus === COURSE_STATUS.complete"
+           class="p-2 bd-highlight label label-complete">
+        {{'buttonLabels.complete' | translate}}
+      </div>
+      <div *ngIf="course.courseStatus === COURSE_STATUS.process"
            class="p-2 bd-highlight label label-process">
         {{'buttonLabels.process' | translate}}
       </div>
@@ -34,11 +34,50 @@
       </div>
     </div>
     <div *ngIf="availableCourse" class="d-grid gap-1">
-      <button type="button" class="btn btn-primary btn-sm">Активировать</button>
+      <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Активировать
+      </button>
     </div>
   </div>
 
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="d-flex justify-content-end">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="d-flex align-items-center flex-column">
+          <div class="p-2 bd-highlight">
+            <svg width="98" height="81" viewBox="0 0 98 81" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M35.0863 35.2531C46.3992 32.9279 44.0327 26.7272 41.4354 23.9175C34.2205 5.89672 46.3415 1.53687 62.7914 0.0835797C79.2413 -1.36971 97.9999 16.3604 97.9999 35.2531C97.9999 54.1459 85.879 66.0628 73.4694 75.6545C61.0598 85.2462 13.4417 79.4331 5.64964 63.4469C-2.14242 47.4607 20.9451 38.1597 35.0863 35.2531Z" fill="#FFF0D4"/>
+              <path d="M14.2917 4.08337C20.6435 7.03245 29.5361 15.2445 14.2917 24.5C-4.76389 36.0695 -4.76389 8.16671 14.2917 4.08337Z" fill="#FFF0D4"/>
+              <circle cx="49" cy="40" r="22" stroke="#F4B740" stroke-width="2"/>
+              <path d="M49 30V40" stroke="#F4B740" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M49 48V49" stroke="#F4B740" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="modal-title-text">
+            Активация курса
+          </div>
+
+          <div class="modal-text">
+            Вы собираетесь активировать {{availableCourse?.courseName}}
+          </div>
+
+        </div>
+        <div class="d-flex justify-content-center modal-footer-buttons">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="onModalClick(availableCourse.id)">
+            Подтвердить
+          </button>
+          <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Отмена</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+
 
 
 

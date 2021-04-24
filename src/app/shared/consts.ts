@@ -9,6 +9,7 @@ export const urls = {
   clientInfo: `${server}/api/v1/doctors/clients/{0}/info`,
   correctionCourse: `${server}/api/v1/doctors/clients/{0}/correction-course`,
   availableCourses: `${server}/api/v1/doctors/clients/courses`,
+  activationCourse: `${server}/api/v1/doctors/clients/{0}/correction-course/{1}`
 };
 
 export const cookieName = 'flyser-cookie';

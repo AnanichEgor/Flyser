@@ -1,13 +1,12 @@
 import {
   HttpErrorResponse,
   HttpEvent,
-  HttpEventType,
   HttpHandler,
   HttpInterceptor,
   HttpRequest,
 } from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
-import {catchError, flatMap, mergeMap} from 'rxjs/operators';
+import {catchError} from 'rxjs/operators';
 import {Injectable} from '@angular/core';
 import {UserService} from './login/services/user.service';
 import {Router} from '@angular/router';
