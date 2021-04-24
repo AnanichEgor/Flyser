@@ -18,6 +18,10 @@ export class SidebarComponent implements OnInit {
   @Input() state: SIDEBAR;
   @Input() image: string;
 
+  get photo(): string {
+    return this.image ?? 'assets/img/doctor.jpg';
+  }
+
   constructor(private sidebarService: SidebarService) {
   }
 

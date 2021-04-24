@@ -79,12 +79,17 @@ div.content {
   width: 160px;
   height: 160px;
   border-radius: 80px;
-  background: #359A70;
-  margin-top: 48px;
+  background: white;
   margin-left: 91px;
   margin-top: 91px;
   margin-bottom: 48px;
   filter: drop-shadow(0px 10px 30px rgba(100, 100, 100, 0.15));
+}
+
+.photo img {
+  width: 160px;
+  height: 160px;
+  border-radius: 80px;
 }
 
 .footer {

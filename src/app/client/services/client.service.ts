@@ -29,13 +29,19 @@ export interface Course {
   providedIn: 'root'
 })
 export class ClientService {
-  clientInfo: ClientInfo;
+  private clientInfo: ClientInfo;
 
   constructor(private http: HttpClient, private utils: UtilsService) {
   }
 
   getClientsInfo(id: string): Observable<Client> {
     return new Observable<Client>(observer => {
+
+        if (this.clientInfo?.parent?.id === id) {
+          observer.next(this.clientInfo.parent);
+          return;
+        }
+
         this.http.get<ClientInfo>(urls.clientInfo.replace('{0}', id))
           .subscribe(
             (data: ClientInfo) => {

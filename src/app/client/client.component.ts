@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Client} from '../doctor/services/doctor.service';
 import {ActivatedRoute, Params} from '@angular/router';
-import {TypeNotification, UtilsService} from '../shared/services/utils.service';
 import {ClientService} from './services/client.service';
 import {SIDEBAR} from '../sidebar/sidebar.component';
 import {ROLE, UserService} from '../login/services/user.service';
@@ -13,14 +12,19 @@ import {ROLE, UserService} from '../login/services/user.service';
 })
 export class ClientComponent implements OnInit {
   SIDEBAR: SIDEBAR;
+  image: string;
 
   constructor(
     public clientService: ClientService,
+    private route: ActivatedRoute,
     private userService: UserService) {
     this.SIDEBAR = userService.gerUser().role !== ROLE.ROLE_CLIENT ? SIDEBAR.doctor_client : SIDEBAR.client;
   }
 
   ngOnInit(): void {
-
+    const id = this.route.snapshot.queryParamMap.get('clientId');
+    this.clientService.getClientsInfo(id).subscribe((data: Client) => {
+      this.image = data.children.photoUrl;
+    });
   }
 }
