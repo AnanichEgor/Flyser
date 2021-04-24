@@ -16,6 +16,13 @@ export interface ClientInfo {
   role: ROLE;
 }
 
+export interface AvailableCourse {
+  id: string;
+  courseName: string;
+  courseUrl: string;
+  sessions: number;
+}
+
 export interface Course {
   course: string;
   courseUrl: string;
@@ -57,5 +64,9 @@ export class ClientService {
 
   getCorrectionCourses(id: string): Observable<Course[]> {
     return this.http.get<Course[]>(urls.correctionCourse.replace('{0}', id));
+  }
+
+  getAvailableCourses(): Observable<AvailableCourse[]> {
+    return this.http.get<AvailableCourse[]>(urls.availableCourses);
   }
 }

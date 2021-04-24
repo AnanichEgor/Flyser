@@ -1,19 +1,20 @@
 <div class="cards"
-     [class.card-process]="course.courseStatus === COURSE_STATUS.inProgress"
-     (click)="onClick(course.course)">
+     [class.card-process]="course?.courseStatus === COURSE_STATUS.inProgress"
+     [class.card-complete]="availableCourse"
+     (click)="onClick(course?.course)">
   <div class="header">
     <div class="photo">
-      <img [src]="course.courseUrl">
+      <img [src]="course?.courseUrl || availableCourse?.courseUrl">
     </div>
     <div class="name">
-      <span class="game-name">{{course.course}}</span>
+      <span class="game-name">{{course?.course || availableCourse?.courseName}}</span>
     </div>
   </div>
 
   <div class="line"></div>
 
   <div class="footer">
-    <div class="d-flex flex-row bd-highlight mb-0 labels">
+    <div *ngIf="course" class="d-flex flex-row bd-highlight mb-0 labels">
       <!--      <div *ngIf="course.courseStatus === COURSE_STATUS.complete"-->
       <!--           class="p-2 bd-highlight label label-complete">-->
       <!--        {{'buttonLabels.complete' | translate}}-->
@@ -31,6 +32,9 @@
         <span class="date-name">Завершено</span>
         <div class="date">{{course.courseEnd | date:'shortDate'}}</div>
       </div>
+    </div>
+    <div *ngIf="availableCourse" class="d-grid gap-1">
+      <button type="button" class="btn btn-primary btn-sm">Активировать</button>
     </div>
   </div>
 

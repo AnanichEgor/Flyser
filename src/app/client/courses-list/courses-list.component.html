@@ -8,10 +8,19 @@
 </app-header>
 
 <div class="wrapper">
-  <div class="courses" *ngFor="let course of courses">
-    <app-game-card [course]="course"></app-game-card>
+  <div *ngIf="courses && !availableCourses">
+    <div class="courses" *ngFor="let course of courses">
+      <app-game-card [course]="course"></app-game-card>
+    </div>
   </div>
-  <div class="cards add-new-course d-flex justify-content-center flex-column ">
+
+  <div *ngIf="!courses && availableCourses">
+    <div class="courses" *ngFor="let course of availableCourses">
+      <app-game-card [availableCourse]="course"></app-game-card>
+    </div>
+  </div>
+
+  <div *ngIf="!availableCourses" class="cards add-new-course d-flex justify-content-center flex-column" (click)="addCourse()">
     <div class="d-flex justify-content-center">
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M10 1V19" stroke="#0E57C5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -22,5 +31,7 @@
       Начать новый курс коррекции
     </div>
   </div>
+
+
 </div>
 

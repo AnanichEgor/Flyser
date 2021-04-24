@@ -52,6 +52,11 @@ export class UtilsService {
       );
   }
 
+  public serverError(error: any): void {
+    this.translateNotification('registration.getServerError', TypeNotification.danger);
+    console.log('Error from server: ', error);
+  }
+
   public showNotification(message: string,
                           type: TypeNotification = TypeNotification.success,
                           position: PositionNotification = PositionNotification.bottomCenter): void {

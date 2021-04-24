@@ -2,8 +2,16 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {SIDEBAR} from 'src/app/sidebar/sidebar.component';
 import {Client} from '../../doctor/services/doctor.service';
-import {TypeNotification, UtilsService} from '../../shared/services/utils.service';
-import {ClientService, Course} from '../services/client.service';
+import {UtilsService} from '../../shared/services/utils.service';
+import {AvailableCourse, ClientService, Course} from '../services/client.service';
+
+const availableCoursesMock: AvailableCourse = {
+  id: 'hoverbike',
+  courseName: 'hoverbike',
+  courseUrl: 'https://pbs.twimg.com/profile_images/2811079982/606e04946d47fcb17ab308baf3ac81f5_400x400.jpeg',
+  sessions: 25
+};
+
 
 @Component({
   selector: 'app-courses-list',
@@ -14,6 +22,7 @@ export class CoursesListComponent implements OnInit {
   SIDEBAR: SIDEBAR;
   clientInfo: Client;
   courses: Course[];
+  availableCourses: AvailableCourse[];
   ages: string;
 
   constructor(
@@ -27,7 +36,7 @@ export class CoursesListComponent implements OnInit {
     this.clientService.getCorrectionCourses(id).subscribe((data: Course[]) => {
       this.courses = data;
       console.log('courses:', this.courses);
-    }, () => this.utils.translateNotification('registration.getServerError', TypeNotification.danger));
+    }, (error) => this.utils.serverError(error));
   }
 
   ngOnInit(): void {
@@ -40,4 +49,13 @@ export class CoursesListComponent implements OnInit {
     });
   }
 
+  addCourse(): void {
+    this.clientService.getAvailableCourses().subscribe((data: AvailableCourse[]) => {
+      this.availableCourses = data;
+    }, (error) => {
+      this.utils.serverError(error);
+      this.courses = null;
+      this.availableCourses = [availableCoursesMock];
+    });
+  }
 }
